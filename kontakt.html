@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="da">
+    <head>
+        <title>Kontakt Kantan</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="author" content="Kantan">
+        <meta name="description" content="Kontakt Kantan for it-hjælp i Odense. Ring eller skriv, så finder vi en tid der passer dig.">
+
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="bg-white">
+
+        <!-- SVG-ikoner -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></symbol>
+            <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+            <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+            <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+        </svg>
+
+        <header id="header" class="site-header">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-3 px-lg-5 py-2">
+              <a class="navbar-brand" href="index.html">
+                <span class="logo-mark" aria-hidden="true">簡単</span>
+                Kantan
+              </a>
+              <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarMain"
+              aria-controls="navbarMain"
+              aria-expanded="false"
+              aria-label="Åbn menu">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+                <ul class="navbar-nav gap-lg-2 align-items-lg-center mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html#forside">Forside</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html#services">Sådan hjælper jeg</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html#om-mig">Om mig</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html#priser">Priser</a>
+                  </li>
+                  <li class="nav-item mt-2 mt-lg-0">
+                    <a class="nav-link nav-cta active" href="kontakt.html">Kontakt mig</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <section class="hero section-tight">
+          <div class="container">
+            <div class="text-center text-center-narrow">
+              <span class="eyebrow">Kontakt</span>
+              <h1>Kontakt Kantan</h1>
+              <p class="lead-text">
+                Har du brug for hjælp til din computer, mobil, printer eller internet? Ring eller skriv til mig, så finder vi en tid, der passer dig.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="contact-card">
+
+                  <div class="contact-row">
+                    <span class="icon-circle"><svg class="icon-svg" width="28" height="28"><use xlink:href="#icon-phone"></use></svg></span>
+                    <div>
+                      <div class="contact-row-label">Telefon</div>
+                      <!-- TODO: Indsæt telefonnummer, fx href="tel:+4512345678" og vis "12 34 56 78" -->
+                      <a class="contact-row-value" href="tel:">
+                        <span class="placeholder-field">Telefonnummer udfyldes</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="contact-row">
+                    <span class="icon-circle"><svg class="icon-svg" width="28" height="28"><use xlink:href="#icon-mail"></use></svg></span>
+                    <div>
+                      <div class="contact-row-label">E-mail</div>
+                      <!-- TODO: Indsæt e-mailadresse, fx href="mailto:info@kantan.dk" -->
+                      <a class="contact-row-value" href="mailto:">
+                        <span class="placeholder-field">E-mailadresse udfyldes</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="contact-row">
+                    <span class="icon-circle"><svg class="icon-svg" width="28" height="28"><use xlink:href="#icon-clock"></use></svg></span>
+                    <div>
+                      <div class="contact-row-label">Åbningstider</div>
+                      <div class="contact-row-value">Efter aftale, alle tidspunkter på dagen</div>
+                    </div>
+                  </div>
+
+                  <div class="contact-row">
+                    <span class="icon-circle"><svg class="icon-svg" width="28" height="28"><use xlink:href="#icon-map-pin"></use></svg></span>
+                    <div>
+                      <div class="contact-row-label">Område</div>
+                      <div class="contact-row-value">Odense og omegn</div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="text-center mt-5">
+                  <p class="lead-text mb-4">
+                    Fortæl mig kort, hvad du har brug for hjælp til, så finder vi sammen en tid der passer dig.
+                  </p>
+                  <div class="hero-actions justify-content-center">
+                    <a href="tel:" class="btn btn-jade">
+                      <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-phone"></use></svg>
+                      Ring nu
+                    </a>
+                    <a href="mailto:" class="btn btn-jade-outline">
+                      <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-mail"></use></svg>
+                      Send en e-mail
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <div class="container">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <a class="navbar-brand mb-3 d-inline-flex" href="index.html">
+                  <span class="logo-mark" aria-hidden="true">簡単</span>
+                  Kantan
+                </a>
+                <p>Nem og tryg it-hjælp hjemme hos dig i Odense.</p>
+              </div>
+              <div class="col-md-4">
+                <h4>Genveje</h4>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="index.html#services">Sådan hjælper jeg</a></li>
+                  <li class="mb-2"><a href="index.html#om-mig">Om mig</a></li>
+                  <li class="mb-2"><a href="index.html#priser">Priser</a></li>
+                  <li class="mb-2"><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h4>Kontakt</h4>
+                <ul class="list-unstyled">
+                  <!-- TODO: Indsæt rigtig e-mail og telefonnummer -->
+                  <li class="mb-2"><a href="mailto:">E-mail: <em>udfyldes</em></a></li>
+                  <li class="mb-2"><a href="tel:">Telefon: <em>udfyldes</em></a></li>
+                  <li class="mb-2">Odense og omegn</li>
+                  <li class="mb-2">Åbent efter aftale, alle tidspunkter på dagen</li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom text-center">
+              © 2026 Kantan. Alle rettigheder forbeholdes.
+            </div>
+          </div>
+        </footer>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
