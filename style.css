@@ -376,6 +376,45 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
 }
 
 /*--------------------------------------------------------------
+  ANMELDELSER
+--------------------------------------------------------------*/
+.review-card {
+  background-color: var(--white);
+  border: 1px solid var(--jade-100);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  height: 100%;
+  box-shadow: var(--shadow);
+}
+
+.review-stars {
+  display: flex;
+  gap: 3px;
+  color: #D99A2B;
+  margin-bottom: 1rem;
+}
+.review-stars svg {
+  fill: currentColor;
+}
+
+.review-quote {
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.review-author {
+  font-weight: 700;
+  color: var(--jade-800);
+  margin-bottom: 0.1rem;
+}
+
+.review-meta {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/*--------------------------------------------------------------
   PRISER
 --------------------------------------------------------------*/
 .price-card {
@@ -530,6 +569,7 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   .hero { padding-top: 60px; padding-bottom: 60px; }
 
   .service-card { padding: 1.75rem 1.5rem; }
+  .review-card { padding: 1.75rem 1.5rem; }
 
   .price-card { padding: 2.5rem 1.75rem; }
   .price-amount { font-size: 56px; }
@@ -560,6 +600,7 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   .hero-actions .btn { justify-content: center; }
 
   .service-card { padding: 1.5rem 1.25rem; }
+  .review-card { padding: 1.5rem 1.25rem; }
 
   .price-card { padding: 2.25rem 1.5rem; }
   .price-amount { font-size: 44px; }
