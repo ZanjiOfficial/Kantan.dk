@@ -22,7 +22,7 @@
         crossorigin="anonymous"
         />
 
-        <link rel="stylesheet" href="style.css?v=5ec89ef9">
+        <link rel="stylesheet" href="style.css?v=d723f2a5">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,20 +140,75 @@
 
                 </div>
 
-                <div class="text-center mt-5">
+                <div class="text-center mt-5 mb-5">
                   <p class="lead-text mb-4">
-                    Fortæl mig kort, hvad du har brug for hjælp til, så finder vi sammen en tid der passer dig.
+                    Foretrækker du at ringe? Så er du velkommen til det.
                   </p>
-                  <div class="hero-actions justify-content-center">
-                    <a href="tel:" class="btn btn-jade">
-                      <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-phone"></use></svg>
-                      Ring nu
-                    </a>
-                    <a href="mailto:" class="btn btn-jade-outline">
+                  <a href="tel:" class="btn btn-jade">
+                    <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-phone"></use></svg>
+                    Ring nu
+                  </a>
+                </div>
+
+                <div class="text-center mb-4">
+                  <span class="eyebrow">Eller skriv til mig</span>
+                  <h2>Send mig en besked</h2>
+                  <p class="lead-text">Udfyld formularen, så vender jeg tilbage til dig hurtigst muligt.</p>
+                </div>
+
+                <div class="contact-form-card">
+                  <!-- TODO: Erstat e-mailadressen nedenfor i action="..." med din rigtige e-mail. Formularen bruger FormSubmit.co (ingen oprettelse nødvendig) — første besked du modtager herfra indeholder et bekræftelseslink, du skal klikke på, før beskeder leveres til din indbakke. -->
+                  <form action="https://formsubmit.co/UDFYLD-DIN-EMAIL-HER" method="POST">
+                    <input type="hidden" name="_subject" value="Ny henvendelse fra Kantan.dk">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="tak.html">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="fornavn">Fornavn</label>
+                          <input class="form-control" type="text" id="fornavn" name="Fornavn" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="efternavn">Efternavn</label>
+                          <input class="form-control" type="text" id="efternavn" name="Efternavn" required>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="postnummer">Postnummer</label>
+                          <input class="form-control" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="5000" id="postnummer" name="Postnummer" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="telefon">Telefonnummer</label>
+                          <input class="form-control" type="tel" id="telefon" name="Telefonnummer" required>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="email">E-mail</label>
+                      <input class="form-control" type="email" id="email" name="E-mail" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="besked">Hvad kan jeg hjælpe dig med?</label>
+                      <textarea class="form-control" id="besked" name="Besked" rows="5" required placeholder="Fortæl kort, hvad der driller..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-jade btn-lg-block">
                       <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-mail"></use></svg>
-                      Send en e-mail
-                    </a>
-                  </div>
+                      Send besked
+                    </button>
+                  </form>
                 </div>
 
               </div>

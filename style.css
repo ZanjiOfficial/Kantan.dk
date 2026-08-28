@@ -295,6 +295,18 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   stroke-width: 3;
 }
 
+.icon-badge-lg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--jade-600);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -526,6 +538,48 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   font-size: 17px;
 }
 
+.contact-form-card {
+  background-color: var(--white);
+  border: 1px solid var(--jade-100);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 18px;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--jade-100);
+  border-radius: 12px;
+  background-color: var(--jade-50);
+  color: var(--ink);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--jade-600);
+  background-color: var(--white);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 140px;
+}
+
 /*--------------------------------------------------------------
   FOOTER
 --------------------------------------------------------------*/
@@ -577,6 +631,7 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   .cta-band { padding: 3.25rem 1rem; }
 
   .contact-card { padding: 2rem; }
+  .contact-form-card { padding: 2rem; }
 
   .avatar-badge { width: 120px; height: 120px; font-size: 36px; }
 }
@@ -609,6 +664,7 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   .cta-band .btn { width: 100%; justify-content: center; }
 
   .contact-card { padding: 1.5rem; }
+  .contact-form-card { padding: 1.5rem; }
   .contact-row { flex-wrap: wrap; }
   .contact-row-value { font-size: 19px; }
 
