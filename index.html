@@ -1,15 +1,20 @@
 <!doctype html>
 <html lang="da">
     <head>
-        <title>Kantan</title>
+        <title>Kantan, skræddersyede rejseplaner til Japan</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="author" content="Kantan">
-        <meta name="keywords" content="it-hjælp, computerhjælp, Odense, ældre, printer, internet, email">
-        <meta name="description" content="Kantan giver dig nem og tryg it-hjælp hjemme hos dig i Odense: computer, mobil, internet, printer og meget mere. 499 kr. per påbegyndt time + transport.">
+        <meta name="keywords" content="Japan rejse, rejseplan Japan, skræddersyet rejse Japan, Tokyo, Kyoto, Hokkaido, Okinawa, Sapporo, ski i Japan, rejseplanlægger, individuel rejse Japan">
+        <meta name="description" content="Kantan bygger din personlige dag-for-dag rejseplan til Japan. Planlagt af en dansker, der har boet i landet i årevis, taler sproget og kender stederne bag facaden.">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Kantan, skræddersyede rejseplaner til Japan">
+        <meta property="og:description" content="Din personlige dag-for-dag rejseplan til Japan, bygget af en dansker der har boet i landet og taler sproget.">
+        <meta property="og:image" content="https://kantan.dk/images/hero.jpg">
+        <meta property="og:url" content="https://kantan.dk/">
 
         <link rel="icon" type="image/svg+xml" href="favicon.svg">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -23,27 +28,25 @@
         crossorigin="anonymous"
         />
 
-        <link rel="stylesheet" href="style.css?v=d723f2a5">
+        <link rel="stylesheet" href="style.css?v=japan1">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     </head>
 
-    <body class="bg-white">
+    <body>
 
-        <!-- SVG-ikoner (bruges flere steder på siden) -->
+        <!-- SVG-ikoner -->
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+            <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+            <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+            <symbol id="icon-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+            <symbol id="icon-train" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="14" rx="2"/><line x1="4" y1="11" x2="20" y2="11"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="9" y1="17" x2="7" y2="21"/><line x1="15" y1="17" x2="17" y2="21"/><circle cx="8.5" cy="14" r="0.5"/><circle cx="15.5" cy="14" r="0.5"/></symbol>
+            <symbol id="icon-map" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></symbol>
+            <symbol id="icon-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
             <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></symbol>
-            <symbol id="icon-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></symbol>
-            <symbol id="icon-printer" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
-            <symbol id="icon-smartphone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
-            <symbol id="icon-tv" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></symbol>
-            <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
-            <symbol id="icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
-            <symbol id="icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
-            <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
         </svg>
 
         <header id="header" class="site-header">
@@ -65,24 +68,13 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
                 <ul class="navbar-nav gap-lg-2 align-items-lg-center mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#forside">Forside</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#services">Sådan hjælper jeg</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#om-mig">Om mig</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#anmeldelser">Anmeldelser</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#priser">Priser</a>
-                  </li>
-                  <li class="nav-item mt-2 mt-lg-0">
-                    <a class="nav-link nav-cta" href="kontakt.html">Kontakt mig</a>
-                  </li>
+                  <li class="nav-item"><a class="nav-link active" href="#forside">Forside</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#saadan">Sådan fungerer det</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#inkluderet">Hvad du får</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#om-mig">Om mig</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#galleri">Galleri</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#priser">Priser</a></li>
+                  <li class="nav-item mt-2 mt-lg-0"><a class="nav-link nav-cta" href="kontakt.html">Kontakt</a></li>
                 </ul>
               </div>
             </div>
@@ -91,288 +83,292 @@
 
         <section id="forside" class="hero">
           <div class="container">
-            <div class="row g-5 align-items-center">
-              <div class="col-lg-6">
-                <span class="eyebrow">It-hjælp i Odense</span>
-                <h1>It-hjælp du kan forstå og stole på</h1>
-                <p class="lead-text">
-                  Kantan hjælper dig med computer, mobil, internet og printer. Jeg kommer hjem til dig i Odense og forklarer roligt, tydeligt og uden fagsprog.
-                </p>
+            <span class="eyebrow">Skræddersyede rejseplaner til Japan</span>
+            <h1>Japan, planlagt af en der har boet der</h1>
+            <p class="lead-text">
+              Jeg bygger jeres personlige dag-for-dag rejseplan til Japan, bygget på år i landet, flydende japansk og et netværk af steder, de fleste rejsende aldrig finder.
+            </p>
+            <div class="hero-actions">
+              <a href="kontakt.html" class="btn btn-light">Fortæl mig om jeres tur</a>
+              <a href="#saadan" class="btn btn-ghost" style="color:var(--paper); border-color:var(--paper);">Sådan fungerer det</a>
+            </div>
+          </div>
+        </section>
 
-                <ul class="trust-list">
-                  <li>
-                    <span class="check-badge"><svg class="icon-svg" width="16" height="16"><use xlink:href="#icon-check"></use></svg></span>
-                    Jeg kommer hjem til dig
-                  </li>
-                  <li>
-                    <span class="check-badge"><svg class="icon-svg" width="16" height="16"><use xlink:href="#icon-check"></use></svg></span>
-                    Ingen fagsprog, kun klare forklaringer
-                  </li>
-                  <li>
-                    <span class="check-badge"><svg class="icon-svg" width="16" height="16"><use xlink:href="#icon-check"></use></svg></span>
-                    Fast pris: 499 kr. per påbegyndt time + transport
-                  </li>
-                </ul>
-
-                <div class="hero-actions">
-                  <a href="kontakt.html" class="btn btn-jade">
-                    <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-phone"></use></svg>
-                    Kontakt mig
-                  </a>
-                  <a href="#services" class="btn btn-jade-outline">Se hvad jeg kan hjælpe med</a>
+        <section id="saadan" class="section">
+          <div class="container">
+            <div class="text-center text-center-narrow mb-5">
+              <span class="eyebrow">Sådan fungerer det</span>
+              <h2>Fra første samtale til færdig plan</h2>
+              <p class="lead-text">Ingen skabeloner. Planen bygges fra bunden omkring jer.</p>
+            </div>
+            <div class="row g-4 g-lg-5">
+              <div class="col-md-6 col-lg-3">
+                <div class="step-card">
+                  <span class="step-number">01</span>
+                  <h4>Vi taler sammen</h4>
+                  <p>En samtale over video eller telefon om jer: rejsefølge, tempo, interesser og hvad Japan skal være for jer.</p>
                 </div>
               </div>
-
-              <div class="col-lg-6 text-center">
-                <img src="images/hero-illustration-sm.png" class="hero-illustration" alt="Illustration af en søn der hjælper sin mor med computeren">
+              <div class="col-md-6 col-lg-3">
+                <div class="step-card">
+                  <span class="step-number">02</span>
+                  <h4>Jeg bygger planen</h4>
+                  <p>En dag-for-dag rejseplan med ruter, tider, spisesteder og alternativer, hvis vejret eller humøret skifter.</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="step-card">
+                  <span class="step-number">03</span>
+                  <h4>Vi finpudser den</h4>
+                  <p>I læser med og siger til. Vi retter til, indtil planen sidder præcis, som I vil have den.</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="step-card">
+                  <span class="step-number">04</span>
+                  <h4>I rejser trygt</h4>
+                  <p>Alt ligger klart på telefonen. Vælger I concierge, er jeg med på besked hele vejen gennem turen.</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="services" class="section">
+        <section id="inkluderet" class="section bg-alt">
           <div class="container">
             <div class="text-center text-center-narrow mb-5">
-              <span class="eyebrow">Ydelser</span>
-              <h2>Sådan kan jeg hjælpe dig</h2>
-              <p class="lead-text">
-                Alt det tekniske, der kan drille i hverdagen. Jeg hjælper dig igennem det, i dit eget tempo.
-              </p>
+              <span class="eyebrow">Hvad du får</span>
+              <h2>En plan, der holder på rejsen</h2>
             </div>
-
             <div class="row g-4">
               <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                  <span class="icon-circle"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-mail"></use></svg></span>
-                  <h3>E-mail</h3>
-                  <p>Opsætning af e-mail, hjælp til at sende og modtage post, og styr på spam og reklamer.</p>
+                <div class="feature-card">
+                  <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-calendar"></use></svg></span>
+                  <h3>Dag-for-dag plan</h3>
+                  <p>Time-for-time hvor det giver mening, luft hvor det ikke gør. Ingen spildte dage, ingen overbookede dage.</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                  <span class="icon-circle"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-wifi"></use></svg></span>
-                  <h3>Internet &amp; wifi</h3>
-                  <p>Opsætning af router, bedre dækning i hjemmet, og hjælp når internettet driller.</p>
+                <div class="feature-card">
+                  <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-compass"></use></svg></span>
+                  <h3>Steder bag facaden</h3>
+                  <p>Restauranter, barer og kvarterer jeg selv bruger, ikke de samme ti adresser, alle andre lister sender jer hen til.</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                  <span class="icon-circle"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-printer"></use></svg></span>
-                  <h3>Printer</h3>
-                  <p>Opsætning og fejlfinding, så du roligt kan printe og scanne uden besvær.</p>
+                <div class="feature-card">
+                  <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-bookmark"></use></svg></span>
+                  <h3>Reservationer klaret</h3>
+                  <p>Svære borde, ryokan og billetter booket i jeres navn, på japansk. I skal bare møde op.</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                  <span class="icon-circle"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-smartphone"></use></svg></span>
-                  <h3>Smartphone &amp; tablet</h3>
-                  <p>Opsætning af ny telefon eller tablet, installation af apps, og overførsel af billeder og kontakter.</p>
+                <div class="feature-card">
+                  <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-train"></use></svg></span>
+                  <h3>Transport uden hovedpine</h3>
+                  <p>JR Pass eller ej, IC-kort, hvilke tog og hvornår, regnet ud på forhånd, så I ikke står og gætter på perronen.</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                  <span class="icon-circle"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-tv"></use></svg></span>
-                  <h3>TV &amp; streaming</h3>
-                  <p>Opsætning af smart-tv og streamingtjenester som Netflix, TV 2 Play og DRTV.</p>
+                <div class="feature-card">
+                  <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-map"></use></svg></span>
+                  <h3>Kort klar til flyet</h3>
+                  <p>Hele planen samlet i Google Maps og som PDF, delt med jer og klar offline, inden I letter fra Kastrup.</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                  <span class="icon-circle"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-shield"></use></svg></span>
-                  <h3>Virus &amp; sikkerhed</h3>
-                  <p>Fjernelse af virus og irriterende reklamer, samt opsætning af sikkerhed og opdateringer.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="row g-4 mt-1 justify-content-center">
-              <div class="col-md-6 col-lg-8">
-                <div class="service-card d-flex flex-column flex-sm-row align-items-sm-center gap-3 text-sm-start text-center">
-                  <span class="icon-circle mx-auto mx-sm-0"><svg class="icon-svg" width="32" height="32"><use xlink:href="#icon-help"></use></svg></span>
-                  <div>
-                    <h3 class="mb-1">Andet teknik-bøvl?</h3>
-                    <p class="mb-0">Har du et andet problem, der driller? Ring endelig, for der er sjældent noget, der ikke kan løses.</p>
-                  </div>
+                <div class="feature-card">
+                  <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-message"></use></svg></span>
+                  <h3>Hjælp mens I er der</h3>
+                  <p>Med Fuld concierge er jeg en besked væk, hvis planer skrider, vejret driller, eller I bare vil have et tip til aftensmaden.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="om-mig" class="section bg-jade-tint">
+        <section id="om-mig" class="section">
           <div class="container">
             <div class="row g-5 align-items-center">
-              <div class="col-lg-4 text-center">
-                <span class="avatar-badge">
-                  <img src="images/jakob.jpg" alt="Jakob Jensen">
-                </span>
-                <h3 class="mt-4 mb-0">Jakob Jensen</h3>
-                <p class="text-uppercase" style="letter-spacing:1px; color: var(--jade-600); font-weight:700; font-size:15px;">Stifter af Kantan</p>
+              <div class="col-lg-5 text-center text-lg-start">
+                <img src="images/jakob.jpg" alt="Jakob Jensen" class="portrait">
               </div>
-              <div class="col-lg-8">
-                <span class="eyebrow">Om Kantan</span>
-                <h2>Enkel hjælp, i øjenhøjde</h2>
+              <div class="col-lg-7">
+                <span class="eyebrow">Om mig</span>
+                <h2>Jeg har boet det, jeg planlægger</h2>
                 <p class="lead-text">
-                  Mit navn er Jakob Jensen, og jeg står bag Kantan. Jeg hjælper ældre i Odense med de teknologiske udfordringer i hverdagen, i et roligt tempo, uden fagsprog og med god tid til dine spørgsmål.
+                  Jeg hedder Jakob, og jeg har boet flere år i Aichi-præfekturet midt i Japan, ikke som turist, men til daglig: arbejde, sprogskole, naboer, en fast bar om fredagen.
                 </p>
-                <div class="brand-story">
-                  <p class="mb-0">
-                    <strong>Kantan (簡単)</strong> betyder <em>"enkelt"</em> på japansk. Og sådan skal det også opleves at få hjælp til teknikken: enkelt, trygt og uden stress.
-                  </p>
-                </div>
+                <p>
+                  Jeg taler og læser japansk flydende og har brugt årevis på at rejse landet tyndt på tværs af årstider, fra skiløjper omkring Sapporo til snorkling i Okinawa, og alt det stille derimellem. Det er den viden, jeg lægger ind i jeres plan: hvad der er værd at rejse efter, hvad der bare er velbesøgt, og hvordan I kommer rundt uden at spilde en dag.
+                </p>
+                <p class="pull-quote mt-4">
+                  «Kantan» betyder «enkelt» på japansk. Det er hele idéen: I får en gennemtænkt rejse, og alt det besværlige er lavet på forhånd.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="saadan-foregaar-det" class="section">
+        <section id="galleri" class="section bg-alt">
           <div class="container">
             <div class="text-center text-center-narrow mb-5">
-              <span class="eyebrow">Sådan foregår det</span>
-              <h2>Tre enkle skridt</h2>
+              <span class="eyebrow">Galleri</span>
+              <h2>Billeder fra vejen</h2>
+              <p class="lead-text">Egne billeder fra Japan. Den slags steder og stemninger, du oplever, når du rejser som en lokal.</p>
             </div>
-            <div class="row g-4 text-center">
-              <div class="col-md-4">
-                <div class="step-card">
-                  <span class="step-number">1</span>
-                  <h4>Du ringer eller skriver</h4>
-                  <p>Tag kontakt via telefon eller e-mail, og fortæl kort hvad du har brug for hjælp til.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="step-card">
-                  <span class="step-number">2</span>
-                  <h4>Vi aftaler en tid</h4>
-                  <p>Der er åbent efter aftale, alle tidspunkter på dagen. Vi finder sammen en tid, der passer dig.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="step-card">
-                  <span class="step-number">3</span>
-                  <h4>Jeg kommer hjem til dig</h4>
-                  <p>Jeg hjælper dig hjemme hos dig selv, til problemet er løst og du er tryg ved det.</p>
-                </div>
-              </div>
+            <div class="gallery">
+              <img src="images/Tokyo/_DSC4050.jpg" alt="Billede fra Tokyo" loading="lazy">
+              <img src="images/Tokyo/_DSC4178.jpg" alt="Billede fra Tokyo" loading="lazy">
+              <img src="images/Tokyo/_DSC4265.jpg" alt="Billede fra Tokyo" loading="lazy">
+              <img src="images/Kyoto/_MG_6068.jpg" alt="Billede fra Kyoto" loading="lazy">
+              <img src="images/Kyoto/_MG_6110.jpg" alt="Billede fra Kyoto" loading="lazy">
+              <img src="images/Nagoya/_DSC4318.jpg" alt="Billede fra Nagoya" loading="lazy">
+              <img src="images/Nagoya/_MG_5899.jpg" alt="Billede fra Nagoya" loading="lazy">
+              <img src="images/Okinawa/_DSC1775.jpg" alt="Billede fra Okinawa" loading="lazy">
+              <img src="images/Okinawa/_DSC1938.jpg" alt="Billede fra Okinawa" loading="lazy">
+              <img src="images/Okinawa/DSC_5432.JPG" alt="Billede fra Okinawa" loading="lazy">
+              <img src="images/Sapporo/_DSC0444.jpg" alt="Billede fra Sapporo" loading="lazy">
+              <img src="images/Sapporo/_DSC0532.jpg" alt="Billede fra Sapporo" loading="lazy">
+              <img src="images/Sapporo/_DSC0711.jpg" alt="Billede fra Sapporo" loading="lazy">
+              <img src="images/matsuri/_DSC3572.jpg" alt="Matsuri i Japan" loading="lazy">
+              <img src="images/matsuri/_DSC3584.jpg" alt="Matsuri i Japan" loading="lazy">
             </div>
           </div>
         </section>
 
-        <section id="anmeldelser" class="section bg-jade-tint">
+        <!-- TODO: Erstat med rigtige kundeudtalelser når de er indhentet. -->
+        <section id="anmeldelser" class="section">
           <div class="container">
             <div class="text-center text-center-narrow mb-5">
               <span class="eyebrow">Anmeldelser</span>
-              <h2>Det siger mine kunder</h2>
+              <h2>Det siger rejsende</h2>
             </div>
             <div class="row g-4">
               <div class="col-md-6 col-lg-4">
                 <div class="review-card">
-                  <div class="review-stars" aria-hidden="true">
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                  </div>
-                  <p class="review-quote">"Jeg er ikke ret god til det der computer, men Jakob forklarede det, så jeg faktisk forstod det. Nu kan jeg selv skrive en mail til min søster, uden jeg skal ringe til nogen først."</p>
-                  <p class="review-author">Bodil Andersen</p>
-                  <p class="review-meta">78 år, Odense NV</p>
+                  <p class="review-quote">«Vi havde læst os trætte i rejseblogs og var stadig i tvivl om alt. Efter én samtale havde vi en plan, vi faktisk turde stole på. Bordet i Kyoto, vi aldrig selv havde fået, var højdepunktet.»</p>
+                  <p class="review-author">Mette &amp; Anders</p>
+                  <p class="review-meta">14 dage, Tokyo, Kanazawa, Kyoto</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
                 <div class="review-card">
-                  <div class="review-stars" aria-hidden="true">
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                  </div>
-                  <p class="review-quote">"Min printer havde drillet i månedsvis, og min søn bor for langt væk til lige at kigge forbi. Jakob fik den ordnet på ingen tid, og han talte ikke ned til mig, selvom jeg nok stillede et dumt spørgsmål eller to."</p>
-                  <p class="review-author">Poul Erik Sørensen</p>
-                  <p class="review-meta">82 år, Bolbro</p>
+                  <p class="review-quote">«Det var pengene værd bare for at slippe for at regne togbilletter ud. Men det, der gjorde turen, var de små steder om aftenen, som vi aldrig havde fundet selv.»</p>
+                  <p class="review-author">Christina L.</p>
+                  <p class="review-meta">10 dage, første gang i Japan</p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
                 <div class="review-card">
-                  <div class="review-stars" aria-hidden="true">
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                  </div>
-                  <p class="review-quote">"Jeg har aldrig kunnet finde ud af den der video-opringning med børnebørnene, hvor man kan se hinanden. Nu har jeg det på telefonen, og vi snakker sammen hver søndag. Det betyder mere, end han nok tror."</p>
-                  <p class="review-author">Grethe Nielsen</p>
-                  <p class="review-meta">74 år, Hjallese</p>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="review-card">
-                  <div class="review-stars" aria-hidden="true">
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                  </div>
-                  <p class="review-quote">"Jeg troede simpelthen ikke, jeg kunne lære det der internet mere, i min alder. Han sad og forklarede roligt, og gerne en gang til, hvis jeg ikke helt fangede det. Ingen fine ord, bare almindeligt dansk."</p>
-                  <p class="review-author">Kaj Madsen</p>
-                  <p class="review-meta">80 år, Odense C</p>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="review-card">
-                  <div class="review-stars" aria-hidden="true">
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                  </div>
-                  <p class="review-quote">"Min datter gav mig sådan en tablet i fødselsdagsgave, men jeg turde ikke rigtig røre den i to måneder. Nu bruger jeg den hver dag til at læse avis og se billeder, takket være Jakob."</p>
-                  <p class="review-author">Inge Christensen</p>
-                  <p class="review-meta">76 år, Dalum</p>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <div class="review-card">
-                  <div class="review-stars" aria-hidden="true">
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                    <svg width="18" height="18"><use xlink:href="#icon-star"></use></svg>
-                  </div>
-                  <p class="review-quote">"Jeg var bange for at trykke forkert et sted og ødelægge det hele. Jakob viste mig, at man ikke bare ødelægger noget ved at trykke på en knap. Lyder nok dumt, men det har gjort mig mindre nervøs."</p>
-                  <p class="review-author">Svend Aage Larsen</p>
-                  <p class="review-meta">85 år, Fruens Bøge</p>
+                  <p class="review-quote">«Vi rejste med to teenagere, og tempoet passede fra dag ét. Da et museum var lukket, skrev jeg fra perronen og havde en ny plan fem minutter efter.»</p>
+                  <p class="review-author">Familien Holm</p>
+                  <p class="review-meta">16 dage, Fuld concierge</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="priser" class="section">
+        <section id="priser" class="section bg-alt">
           <div class="container">
             <div class="text-center text-center-narrow mb-5">
               <span class="eyebrow">Priser</span>
-              <h2>Én fast pris, ingen overraskelser</h2>
+              <h2>Vælg hvor meget jeg skal tage mig af</h2>
+              <p class="lead-text">Prisen er per rejseplan, ikke per person. Én plan dækker hele jeres rejsefølge.</p>
             </div>
-            <div class="price-card">
-              <p class="mb-0" style="color: var(--jade-100);">Timepris</p>
-              <p class="price-amount">499 <span>kr. / påbegyndt time</span></p>
-              <p class="mb-0" style="font-weight:700; color: var(--white);">+ transport</p>
-              <p>Du betaler pr. påbegyndt time, plus en mindre transportudgift for turen til og fra dig. Ingen skjulte gebyrer.</p>
-              <a href="kontakt.html" class="btn btn-jade">Book en tid</a>
+            <!-- TODO: Justér priserne nedenfor til dine rigtige takster. -->
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <div class="price-card">
+                  <h3 class="price-name">Rejseplan</h3>
+                  <p class="price-amount">fra 3.900 kr. <span>engangsbeløb</span></p>
+                  <ul class="price-list">
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Indledende samtale</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dag-for-dag plan som PDF</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Alle steder i delt Google Maps</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Transport- og togvejledning</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Én runde rettelser</li>
+                  </ul>
+                  <a href="kontakt.html" class="btn btn-ghost btn-lg-block">Skriv til mig</a>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="price-card featured">
+                  <h3 class="price-name">Rejseplan + booking</h3>
+                  <p class="price-amount">fra 6.900 kr. <span>engangsbeløb</span></p>
+                  <ul class="price-list">
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Alt i Rejseplan</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Restaurant- og ryokanreservationer i jeres navn</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Billetter til museer og oplevelser</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Anbefaling af hoteller i hver by</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>To runder rettelser</li>
+                  </ul>
+                  <a href="kontakt.html" class="btn btn-light btn-lg-block">Skriv til mig</a>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="price-card">
+                  <h3 class="price-name">Fuld concierge</h3>
+                  <p class="price-amount">fra 11.900 kr. <span>engangsbeløb</span></p>
+                  <ul class="price-list">
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Alt i Rejseplan + booking</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Besked-support hver dag, mens I er i Japan</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Løbende ændringer i planen undervejs</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Reservationer og oversættelse på stedet</li>
+                    <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ubegrænsede rettelser før afrejse</li>
+                  </ul>
+                  <a href="kontakt.html" class="btn btn-ghost btn-lg-block">Skriv til mig</a>
+                </div>
+              </div>
+            </div>
+            <p class="price-note text-center mt-4">Reservationer og billetter afregnes til kostpris oven i honoraret. Du får et konkret tilbud efter den første samtale.</p>
+          </div>
+        </section>
+
+        <section id="faq" class="section">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="text-center mb-5">
+                  <span class="eyebrow">Ofte stillede spørgsmål</span>
+                  <h2>Godt at vide</h2>
+                </div>
+                <details class="faq-item">
+                  <summary>Hvornår skal jeg kontakte dig?</summary>
+                  <p>Helst to til tre måneder før afrejse. De bedste ryokan og restauranter åbner for reservationer tidligt og bliver hurtigt fyldt. Kortere varsel kan lade sig gøre, så arbejder vi bare med det, der er ledigt.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Hvor i Japan planlægger du?</summary>
+                  <p>Hele landet. Ski i Hokkaido, snorkling i Okinawa, tempelbyer, vandreruter, storby eller stille landsby, og gerne de lokale oplevelser, der ikke står i nogen guidebog. Jeg boede i Aichi midt i landet og kender både hovedruterne og det, der ligger udenom.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Planlægger du for familier og par?</summary>
+                  <p>Ja. Jeg tilpasser tempo og indhold, uanset om I rejser som par, med små børn, teenagere eller en flok venner. Planen bygges omkring jeres rejsefølge.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Hvad hvis vi vil ændre noget undervejs?</summary>
+                  <p>Med Fuld concierge retter vi planen løbende, mens I er afsted. Med de øvrige pakker bygger jeg alternativer ind fra start, så I altid har en plan B for vejr og lukkedage.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Booker du fly og hotel?</summary>
+                  <p>Fly nej, det klarer I selv eller jeres rejsebureau. Ryokan, hoteller og særlige overnatninger anbefaler jeg, og med en bookingpakke reserverer jeg dem for jer.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Hvad koster det, hvis vi er flere?</summary>
+                  <p>Prisen er per rejseplan, ikke per person. En plan dækker hele jeres rejsefølge. Reservationer og billetter afregnes til kostpris oven i honoraret.</p>
+                </details>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="cta-band">
           <div class="container">
-            <h2>Klar til at få styr på teknikken?</h2>
-            <p>Ring eller skriv til mig, så finder vi en tid, der passer dig.</p>
-            <a href="kontakt.html" class="btn btn-jade">Kontakt Kantan</a>
+            <h2>Skal jeg planlægge jeres Japan?</h2>
+            <p>Skriv kort om turen, I drømmer om, så vender jeg tilbage med et forslag.</p>
+            <a href="kontakt.html" class="btn btn-light mt-2">Fortæl mig om jeres tur</a>
           </div>
         </section>
 
@@ -384,14 +380,15 @@
                   <span class="logo-mark" aria-hidden="true">簡単</span>
                   Kantan
                 </a>
-                <p>Nem og tryg it-hjælp hjemme hos dig i Odense.</p>
+                <p>Skræddersyede rejseplaner til Japan, bygget af en dansker der har boet i landet.</p>
               </div>
               <div class="col-md-4">
                 <h4>Genveje</h4>
                 <ul class="list-unstyled">
-                  <li class="mb-2"><a href="#services">Sådan hjælper jeg</a></li>
+                  <li class="mb-2"><a href="#saadan">Sådan fungerer det</a></li>
+                  <li class="mb-2"><a href="#inkluderet">Hvad du får</a></li>
                   <li class="mb-2"><a href="#om-mig">Om mig</a></li>
-                  <li class="mb-2"><a href="#anmeldelser">Anmeldelser</a></li>
+                  <li class="mb-2"><a href="#galleri">Galleri</a></li>
                   <li class="mb-2"><a href="#priser">Priser</a></li>
                   <li class="mb-2"><a href="kontakt.html">Kontakt</a></li>
                 </ul>
@@ -399,11 +396,9 @@
               <div class="col-md-4">
                 <h4>Kontakt</h4>
                 <ul class="list-unstyled">
-                  <!-- TODO: Indsæt rigtig e-mail og telefonnummer -->
+                  <!-- TODO: Indsæt rigtig e-mail -->
                   <li class="mb-2"><a href="mailto:">E-mail: <em>udfyldes</em></a></li>
-                  <li class="mb-2"><a href="tel:">Telefon: <em>udfyldes</em></a></li>
-                  <li class="mb-2">Odense og omegn</li>
-                  <li class="mb-2">Åbent efter aftale, alle tidspunkter på dagen</li>
+                  <li class="mb-2">Svar typisk inden for en hverdag</li>
                 </ul>
               </div>
             </div>
