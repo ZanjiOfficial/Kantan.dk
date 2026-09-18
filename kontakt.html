@@ -21,7 +21,7 @@
         crossorigin="anonymous"
         />
 
-        <link rel="stylesheet" href="style.css?v=japan3">
+        <link rel="stylesheet" href="style.css?v=afb913a7">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></symbol>
             <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+            <symbol id="icon-map" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></symbol>
+            <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
         </svg>
 
         <header id="header" class="site-header">
@@ -73,7 +75,7 @@
             <div class="text-center text-center-narrow">
               <span class="hanko" aria-hidden="true">文</span>
               <span class="eyebrow">Kontakt</span>
-              <h1>Fortæl mig om jeres tur</h1>
+              <h1>Hvad drømmer du om?</h1>
               <p class="lead-text">
                 Skriv kort om den Japan-rejse eller det working holiday-år, du drømmer om. Jeg vender tilbage med et forslag til, hvordan jeg kan hjælpe, og en pris.
               </p>
@@ -91,7 +93,7 @@
                     <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-mail"></use></svg></span>
                     <div>
                       <div class="contact-row-label">E-mail</div>
-                      <a class="contact-row-value" href="mailto:jakob@kantan.dk">jakob@kantan.dk</a>
+                      <a class="contact-row-value" href="mailto:kontakt@kantan.dk">kontakt@kantan.dk</a>
                     </div>
                   </div>
                   <div class="contact-row">
@@ -106,73 +108,210 @@
                 <div class="text-center mb-4">
                   <span class="eyebrow">Send en besked</span>
                   <h2>Skriv til mig</h2>
-                  <p class="lead-text">Jo mere I fortæller, jo bedre kan jeg svare på, hvordan turen kan se ud.</p>
+                  <p class="lead-text">Vælg, hvad du har brug for, og fortæl lidt om dig selv. Jo mere du skriver, jo bedre kan jeg svare.</p>
                 </div>
 
                 <div class="contact-form-card">
-                  <!-- FormSubmit.co: første besked herfra indeholder et bekræftelseslink, der skal klikkes på, før beskeder leveres. -->
-                  <form action="https://formsubmit.co/jakob@kantan.dk" method="POST">
+                  <!-- FormSubmit.co: den første besked sender et bekræftelseslink til kontakt@kantan.dk, som skal klikkes på, før beskeder leveres. -->
+                  <form id="kontaktform" action="https://formsubmit.co/kontakt@kantan.dk" method="POST">
                     <input type="hidden" name="_subject" value="Ny henvendelse fra Kantan.dk">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="tak.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://kantan.dk/tak.html">
                     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="form-label" for="navn">Navn</label>
-                          <input class="form-control" type="text" id="navn" name="Navn" required>
+                    <fieldset class="form-block">
+                      <legend class="form-legend">Hvad har du brug for hjælp til?</legend>
+                      <div class="choice-grid">
+                        <label class="choice-card">
+                          <input type="radio" name="Type" value="Rejseplan til Japan" data-branch="rejse" checked>
+                          <span class="choice-body">
+                            <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-map"></use></svg></span>
+                            <strong>Rejseplan</strong>
+                            <small>Ferie, bryllupsrejse eller drømmetur</small>
+                          </span>
+                        </label>
+                        <label class="choice-card">
+                          <input type="radio" name="Type" value="Working Holiday" data-branch="wh">
+                          <span class="choice-body">
+                            <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-briefcase"></use></svg></span>
+                            <strong>Working Holiday</strong>
+                            <small>Bo og arbejd i Japan i op til et år</small>
+                          </span>
+                        </label>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="form-block">
+                      <legend class="form-legend">Om dig</legend>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="form-label" for="navn">Navn</label>
+                            <input class="form-control" type="text" id="navn" name="Navn" autocomplete="name" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="form-label" for="email">E-mail</label>
+                            <input class="form-control" type="email" id="email" name="E-mail" autocomplete="email" required>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="form-label" for="email">E-mail</label>
-                          <input class="form-control" type="email" id="email" name="E-mail" required>
+                    </fieldset>
+
+                    <fieldset class="form-block" id="gren-rejse" data-branch="rejse">
+                      <legend class="form-legend">Om turen</legend>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="form-label" for="afrejse">Afrejse (ca.)</label>
+                            <select class="form-control" id="afrejse" name="Afrejse" data-months="18">
+                              <option value="Ved ikke endnu">Ved ikke endnu</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="form-label" for="varighed">Varighed</label>
+                            <select class="form-control" id="varighed" name="Varighed">
+                              <option value="Ved ikke endnu">Ved ikke endnu</option>
+                              <option>Op til 1 uge</option>
+                              <option>1–2 uger</option>
+                              <option>2–3 uger</option>
+                              <option>3–4 uger</option>
+                              <option>Over 4 uger</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="form-label" for="datoer">Rejsedatoer (ca.)</label>
-                          <input class="form-control" type="text" id="datoer" name="Rejsedatoer" placeholder="fx oktober 2026, 12 dage">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <span class="form-label" id="l-voksne">Voksne</span>
+                            <div class="stepper">
+                              <button type="button" class="stepper-btn" data-step="-1" aria-label="Færre voksne">&minus;</button>
+                              <input class="stepper-value" type="number" id="voksne" name="Voksne" value="2" min="1" max="20" inputmode="numeric" aria-labelledby="l-voksne">
+                              <button type="button" class="stepper-btn" data-step="1" aria-label="Flere voksne">+</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <span class="form-label" id="l-boern">Børn</span>
+                            <div class="stepper">
+                              <button type="button" class="stepper-btn" data-step="-1" aria-label="Færre børn">&minus;</button>
+                              <input class="stepper-value" type="number" id="boern" name="Børn" value="0" min="0" max="10" inputmode="numeric" aria-labelledby="l-boern">
+                              <button type="button" class="stepper-btn" data-step="1" aria-label="Flere børn">+</button>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="form-label" for="antal">Antal rejsende</label>
-                          <input class="form-control" type="text" inputmode="numeric" id="antal" name="Antal rejsende" placeholder="fx 2 voksne">
+                      <div class="form-group" id="boernealder" hidden>
+                        <label class="form-label" for="boernealder-input">Børnenes alder</label>
+                        <input class="form-control" type="text" id="boernealder-input" name="Børnenes alder" placeholder="fx 6 og 9 år">
+                      </div>
+                      <fieldset class="form-group">
+                        <legend class="form-label">Første gang i Japan?</legend>
+                        <div class="chips">
+                          <label class="chip"><input type="radio" name="Været i Japan før" value="Første gang"><span>Ja, første gang</span></label>
+                          <label class="chip"><input type="radio" name="Været i Japan før" value="Har været der før"><span>Nej, har været der før</span></label>
+                        </div>
+                      </fieldset>
+                      <fieldset class="form-group">
+                        <legend class="form-label">Hvad tiltrækker mest? <span class="opt">(vælg gerne flere)</span></legend>
+                        <div class="chips">
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Storby"><span>Storby</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Natur og vandring"><span>Natur og vandring</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Templer og kultur"><span>Templer og kultur</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Mad og drikke"><span>Mad og drikke</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Ski og vinter"><span>Ski og vinter</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Strand og hav"><span>Strand og hav</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Onsen og ryokan"><span>Onsen og ryokan</span></label>
+                          <label class="chip"><input type="checkbox" name="Interesser" value="Landet og lokale steder"><span>Landet og lokale steder</span></label>
+                        </div>
+                      </fieldset>
+                      <fieldset class="form-group mb-0">
+                        <legend class="form-label">Hvilken pakke passer bedst?</legend>
+                        <div class="chips">
+                          <label class="chip"><input type="radio" name="Pakke" value="Ved ikke endnu" checked><span>Ved ikke endnu</span></label>
+                          <label class="chip"><input type="radio" name="Pakke" value="Rejseplan" data-k="rejseplan"><span>Rejseplan</span></label>
+                          <label class="chip"><input type="radio" name="Pakke" value="Rejseplan + booking" data-k="booking"><span>Rejseplan + booking</span></label>
+                          <label class="chip"><input type="radio" name="Pakke" value="Fuld concierge" data-k="concierge"><span>Fuld concierge</span></label>
+                        </div>
+                      </fieldset>
+                    </fieldset>
+
+                    <fieldset class="form-block" id="gren-wh" data-branch="wh" hidden disabled>
+                      <legend class="form-legend">Om dit år i Japan</legend>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="form-label" for="alder">Alder</label>
+                            <input class="form-control" type="number" id="alder" name="Alder" min="16" max="99" inputmode="numeric" placeholder="fx 24" required>
+                            <p class="form-hint" id="alder-hint" hidden>Working holiday-visum kræver, at man er mellem 18 og 30 år. Skriv endelig alligevel, så ser vi på mulighederne.</p>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="form-label" for="wh-afrejse">Afrejse (ca.)</label>
+                            <select class="form-control" id="wh-afrejse" name="Afrejse" data-months="24">
+                              <option value="Ved ikke endnu">Ved ikke endnu</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="form-label" for="wh-varighed">Hvor længe vil du være af sted?</label>
+                            <select class="form-control" id="wh-varighed" name="Varighed">
+                              <option value="Ved ikke endnu">Ved ikke endnu</option>
+                              <option>Op til 3 måneder</option>
+                              <option>3–6 måneder</option>
+                              <option>6–9 måneder</option>
+                              <option>9–12 måneder</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="form-label" for="japansk">Dit japansk</label>
+                            <select class="form-control" id="japansk" name="Japansk niveau">
+                              <option>Ingen endnu</option>
+                              <option>Begynder</option>
+                              <option>Kan klare hverdagen</option>
+                              <option>Flydende</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <fieldset class="form-group mb-0">
+                        <legend class="form-label">Hvor meget hjælp vil du have?</legend>
+                        <div class="chips">
+                          <label class="chip"><input type="radio" name="Working holiday-pakke" value="Ved ikke endnu" data-k="wh" checked><span>Ved ikke endnu</span></label>
+                          <label class="chip"><input type="radio" name="Working holiday-pakke" value="Visum og ankomst" data-k="wh-visum"><span>Visum og ankomst</span></label>
+                          <label class="chip"><input type="radio" name="Working holiday-pakke" value="Fuld support" data-k="wh-fuld"><span>Fuld support</span></label>
+                        </div>
+                      </fieldset>
+                    </fieldset>
 
-                    <div class="form-group">
-                      <label class="form-label" for="pakke">Hvilken pakke interesserer dig?</label>
-                      <select class="form-control" id="pakke" name="Pakke">
-                        <option value="Ved ikke endnu">Ved ikke endnu</option>
-                        <optgroup label="Rejseplan til Japan">
-                          <option value="Rejseplan">Rejseplan</option>
-                          <option value="Rejseplan + booking">Rejseplan + booking</option>
-                          <option value="Fuld concierge">Fuld concierge</option>
-                        </optgroup>
-                        <optgroup label="Working Holiday">
-                          <option value="Working Holiday, ved ikke endnu" data-k="wh">Working Holiday, ved ikke endnu</option>
-                          <option value="Working Holiday, visum og ankomst" data-k="wh-visum">Working Holiday, visum og ankomst</option>
-                          <option value="Working Holiday, fuld support" data-k="wh-fuld">Working Holiday, fuld support</option>
-                        </optgroup>
-                      </select>
-                    </div>
+                    <fieldset class="form-block">
+                      <legend class="form-legend">Til sidst</legend>
+                      <div class="form-group mb-0">
+                        <label class="form-label" for="besked">Noget andet, jeg bør vide? <span class="opt">(valgfrit)</span></label>
+                        <textarea class="form-control" id="besked" name="Besked" rows="5"
+                          data-ph-rejse="Fx: vi vil gerne se Kyoto og Hokkaido, elsker god mad og vil helst undgå turiststeder."
+                          data-ph-wh="Fx: jeg vil gerne på skisæson i Hokkaido til vinter og har ikke boet i udlandet før."></textarea>
+                      </div>
+                    </fieldset>
 
-                    <div class="form-group">
-                      <label class="form-label" for="besked">Fortæl om jeres drømmetur</label>
-                      <textarea class="form-control" id="besked" name="Besked" rows="6" required placeholder="Rejse: første gang i Japan eller været der før? Storby eller natur? Working holiday: hvornår vil du afsted, og hvor gammel er du? Alt hjælper."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-ink btn-lg-block">
+                    <p class="form-status" id="formstatus" role="alert" hidden></p>
+                    <button type="submit" class="btn btn-ink btn-lg-block" id="sendknap">
                       <svg class="icon-svg" width="20" height="20"><use xlink:href="#icon-mail"></use></svg>
                       Send besked
                     </button>
+                    <p class="form-note">Jeg bruger kun dine oplysninger til at svare på din henvendelse.</p>
                   </form>
                 </div>
 
@@ -206,7 +345,7 @@
               <div class="col-md-4">
                 <h4>Kontakt</h4>
                 <ul class="list-unstyled">
-                  <li class="mb-2"><a href="mailto:jakob@kantan.dk">E-mail: jakob@kantan.dk</a></li>
+                  <li class="mb-2"><a href="mailto:kontakt@kantan.dk">E-mail: kontakt@kantan.dk</a></li>
                   <li class="mb-2">Svar typisk inden for en hverdag</li>
                 </ul>
               </div>
@@ -228,9 +367,100 @@
             crossorigin="anonymous"
         ></script>
         <script>
-          var k = new URLSearchParams(location.search).get('pakke');
-          var o = Array.from(document.querySelectorAll('#pakke option')).find(function (x) { return x.dataset.k === k; });
-          if (o) o.selected = true;
+          (function () {
+            var form = document.getElementById('kontaktform');
+            var status = document.getElementById('formstatus');
+            var btn = document.getElementById('sendknap');
+            var msg = document.getElementById('besked');
+
+            document.querySelectorAll('select[data-months]').forEach(function (sel) {
+              var d = new Date();
+              d.setDate(1);
+              for (var i = 0; i < +sel.dataset.months; i++, d.setMonth(d.getMonth() + 1)) {
+                var t = d.toLocaleDateString('da-DK', { month: 'long', year: 'numeric' });
+                t = t.charAt(0).toUpperCase() + t.slice(1);
+                sel.add(new Option(t, t));
+              }
+            });
+
+            function setBranch(b) {
+              form.querySelectorAll('fieldset[data-branch]').forEach(function (fs) {
+                var on = fs.dataset.branch === b;
+                fs.hidden = !on;
+                fs.disabled = !on;
+              });
+              msg.placeholder = b === 'wh' ? msg.dataset.phWh : msg.dataset.phRejse;
+            }
+            form.querySelectorAll('input[name="Type"]').forEach(function (r) {
+              r.addEventListener('change', function () { setBranch(r.dataset.branch); });
+            });
+            setBranch(form.querySelector('input[name="Type"]:checked').dataset.branch);
+
+            var k = new URLSearchParams(location.search).get('pakke');
+            var pre = Array.from(form.querySelectorAll('input[data-k]')).find(function (x) { return x.dataset.k === k; });
+            if (pre) {
+              var b = pre.closest('fieldset[data-branch]').dataset.branch;
+              pre.checked = true;
+              form.querySelector('input[name="Type"][data-branch="' + b + '"]').checked = true;
+              setBranch(b);
+            }
+
+            form.querySelectorAll('.stepper').forEach(function (s) {
+              var input = s.querySelector('input');
+              s.addEventListener('click', function (e) {
+                var el = e.target.closest('[data-step]');
+                if (!el) return;
+                if (+el.dataset.step > 0) input.stepUp(); else input.stepDown();
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+              });
+            });
+
+            var kids = document.getElementById('boern');
+            var kidsAge = document.getElementById('boernealder');
+            kids.addEventListener('input', function () {
+              var show = +kids.value > 0;
+              kidsAge.hidden = !show;
+              if (!show) kidsAge.querySelector('input').value = '';
+            });
+
+            var age = document.getElementById('alder');
+            var hint = document.getElementById('alder-hint');
+            age.addEventListener('input', function () {
+              hint.hidden = !age.value || (+age.value >= 18 && +age.value <= 30);
+            });
+
+            form.addEventListener('submit', function (e) {
+              e.preventDefault();
+              var data = {};
+              new FormData(form).forEach(function (v, key) {
+                if (v === '' || key === '_next') return;
+                data[key] = key in data ? data[key] + ', ' + v : v;
+              });
+              if (data._honey) { location.href = 'tak.html'; return; }
+              data._replyto = data['E-mail'];
+              data._subject = 'Ny henvendelse fra Kantan.dk: ' + data.Type + ' (' + data.Navn + ')';
+
+              var label = btn.innerHTML;
+              btn.disabled = true;
+              btn.textContent = 'Sender …';
+              status.hidden = true;
+
+              fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
+              }).then(function (r) { return r.json(); }).then(function (j) {
+                if (j.success !== true && j.success !== 'true') throw j;
+                location.href = 'tak.html';
+              }).catch(function () {
+                status.innerHTML = 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til <a href="mailto:kontakt@kantan.dk">kontakt@kantan.dk</a>.';
+                status.hidden = false;
+                btn.disabled = false;
+                btn.innerHTML = label;
+                status.scrollIntoView({ block: 'center', behavior: 'smooth' });
+              });
+            });
+          })();
         </script>
     </body>
 </html>
