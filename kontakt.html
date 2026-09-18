@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="da">
     <head>
-        <title>Kontakt, Kantan rejseplaner til Japan</title>
+        <title>Kontakt, Kantan rejseplaner og working holiday i Japan</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
         <meta name="author" content="Kantan">
-        <meta name="description" content="Fortæl om den Japan-rejse, I drømmer om, så vender jeg tilbage med et forslag og en pris.">
+        <meta name="description" content="Fortæl om den Japan-rejse eller det working holiday-år, du drømmer om, så vender jeg tilbage med et forslag og en pris.">
 
         <link rel="icon" type="image/svg+xml" href="favicon.svg">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -36,7 +36,7 @@
         </svg>
 
         <header id="header" class="site-header">
-          <nav class="navbar navbar-expand-lg">
+          <nav class="navbar navbar-expand-xl">
             <div class="container-fluid px-3 px-lg-5 py-2">
               <a class="navbar-brand" href="index.html">
                 <span class="logo-mark" aria-hidden="true">簡単</span>
@@ -53,14 +53,15 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
-                <ul class="navbar-nav gap-lg-2 align-items-lg-center mb-2 mb-lg-0">
+                <ul class="navbar-nav gap-xl-2 align-items-xl-center mb-2 mb-xl-0">
                   <li class="nav-item"><a class="nav-link" href="index.html#forside">Forside</a></li>
                   <li class="nav-item"><a class="nav-link" href="index.html#saadan">Sådan fungerer det</a></li>
                   <li class="nav-item"><a class="nav-link" href="index.html#inkluderet">Hvad du får</a></li>
                   <li class="nav-item"><a class="nav-link" href="index.html#om-mig">Om mig</a></li>
                   <li class="nav-item"><a class="nav-link" href="index.html#galleri">Galleri</a></li>
                   <li class="nav-item"><a class="nav-link" href="index.html#priser">Priser</a></li>
-                  <li class="nav-item mt-2 mt-lg-0"><a class="nav-link nav-cta active" href="kontakt.html">Kontakt</a></li>
+                  <li class="nav-item"><a class="nav-link" href="working-holiday.html">Working Holiday</a></li>
+                  <li class="nav-item mt-2 mt-xl-0"><a class="nav-link nav-cta active" href="kontakt.html">Kontakt</a></li>
                 </ul>
               </div>
             </div>
@@ -74,7 +75,7 @@
               <span class="eyebrow">Kontakt</span>
               <h1>Fortæl mig om jeres tur</h1>
               <p class="lead-text">
-                Skriv kort om den Japan-rejse, I drømmer om. Jeg vender tilbage med et forslag til, hvordan jeg kan planlægge den, og en pris.
+                Skriv kort om den Japan-rejse eller det working holiday-år, du drømmer om. Jeg vender tilbage med et forslag til, hvordan jeg kan hjælpe, og en pris.
               </p>
             </div>
           </div>
@@ -90,10 +91,7 @@
                     <span class="icon-line"><svg class="icon-svg"><use xlink:href="#icon-mail"></use></svg></span>
                     <div>
                       <div class="contact-row-label">E-mail</div>
-                      <!-- TODO: Indsæt e-mailadresse, fx href="mailto:jakob@kantan.dk" -->
-                      <a class="contact-row-value" href="mailto:">
-                        <span class="placeholder-field">E-mailadresse udfyldes</span>
-                      </a>
+                      <a class="contact-row-value" href="mailto:jakob@kantan.dk">jakob@kantan.dk</a>
                     </div>
                   </div>
                   <div class="contact-row">
@@ -112,8 +110,8 @@
                 </div>
 
                 <div class="contact-form-card">
-                  <!-- TODO: Erstat e-mailadressen i action="..." med din rigtige. FormSubmit.co kræver ingen oprettelse, første besked herfra indeholder et bekræftelseslink, du skal klikke på, før beskeder leveres. -->
-                  <form action="https://formsubmit.co/UDFYLD-DIN-EMAIL-HER" method="POST">
+                  <!-- FormSubmit.co: første besked herfra indeholder et bekræftelseslink, der skal klikkes på, før beskeder leveres. -->
+                  <form action="https://formsubmit.co/jakob@kantan.dk" method="POST">
                     <input type="hidden" name="_subject" value="Ny henvendelse fra Kantan.dk">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="tak.html">
@@ -153,15 +151,22 @@
                       <label class="form-label" for="pakke">Hvilken pakke interesserer dig?</label>
                       <select class="form-control" id="pakke" name="Pakke">
                         <option value="Ved ikke endnu">Ved ikke endnu</option>
-                        <option value="Rejseplan">Rejseplan</option>
-                        <option value="Rejseplan + booking">Rejseplan + booking</option>
-                        <option value="Fuld concierge">Fuld concierge</option>
+                        <optgroup label="Rejseplan til Japan">
+                          <option value="Rejseplan">Rejseplan</option>
+                          <option value="Rejseplan + booking">Rejseplan + booking</option>
+                          <option value="Fuld concierge">Fuld concierge</option>
+                        </optgroup>
+                        <optgroup label="Working Holiday">
+                          <option value="Working Holiday, ved ikke endnu" data-k="wh">Working Holiday, ved ikke endnu</option>
+                          <option value="Working Holiday, visum og ankomst" data-k="wh-visum">Working Holiday, visum og ankomst</option>
+                          <option value="Working Holiday, fuld support" data-k="wh-fuld">Working Holiday, fuld support</option>
+                        </optgroup>
                       </select>
                     </div>
 
                     <div class="form-group">
                       <label class="form-label" for="besked">Fortæl om jeres drømmetur</label>
-                      <textarea class="form-control" id="besked" name="Besked" rows="6" required placeholder="Første gang i Japan eller været der før? Storby eller natur? Mad, vandring, ro, ryokan? Alt hjælper."></textarea>
+                      <textarea class="form-control" id="besked" name="Besked" rows="6" required placeholder="Rejse: første gang i Japan eller været der før? Storby eller natur? Working holiday: hvornår vil du afsted, og hvor gammel er du? Alt hjælper."></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-ink btn-lg-block">
@@ -184,7 +189,7 @@
                   <span class="logo-mark" aria-hidden="true">簡単</span>
                   Kantan
                 </a>
-                <p>Skræddersyede rejseplaner til Japan, bygget af en dansker der har boet i landet.</p>
+                <p>Rejseplaner og working holiday i Japan, ved en dansker der har boet i landet.</p>
               </div>
               <div class="col-md-4">
                 <h4>Genveje</h4>
@@ -194,14 +199,14 @@
                   <li class="mb-2"><a href="index.html#om-mig">Om mig</a></li>
                   <li class="mb-2"><a href="index.html#galleri">Galleri</a></li>
                   <li class="mb-2"><a href="index.html#priser">Priser</a></li>
+                  <li class="mb-2"><a href="working-holiday.html">Working Holiday</a></li>
                   <li class="mb-2"><a href="kontakt.html">Kontakt</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
                 <h4>Kontakt</h4>
                 <ul class="list-unstyled">
-                  <!-- TODO: Indsæt rigtig e-mail -->
-                  <li class="mb-2"><a href="mailto:">E-mail: <em>udfyldes</em></a></li>
+                  <li class="mb-2"><a href="mailto:jakob@kantan.dk">E-mail: jakob@kantan.dk</a></li>
                   <li class="mb-2">Svar typisk inden for en hverdag</li>
                 </ul>
               </div>
@@ -222,5 +227,10 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <script>
+          var k = new URLSearchParams(location.search).get('pakke');
+          var o = Array.from(document.querySelectorAll('#pakke option')).find(function (x) { return x.dataset.k === k; });
+          if (o) o.selected = true;
+        </script>
     </body>
 </html>
