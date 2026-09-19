@@ -1,0 +1,11 @@
+{
+  "name": "kantan-dk",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "marked": "^18.0.13"
+  }
+}

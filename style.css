@@ -766,6 +766,42 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 .stepper-value::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
 /*--------------------------------------------------------------
+  ARTIKLER: kort (forside + oversigt) og brødtekst
+--------------------------------------------------------------*/
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--white);
+  border-top: 2px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.article-card:hover { border-top-color: var(--accent); transform: translateY(-3px); color: var(--ink); }
+.article-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.article-card-body { display: flex; flex-direction: column; flex-grow: 1; padding: 1.75rem 2rem 2rem; }
+.article-card .eyebrow { margin-bottom: 0.5rem; }
+.article-card h3 { font-size: 24px; margin-bottom: 0.5rem; }
+.article-card p { color: var(--ink-soft); }
+.article-card-more { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--accent); }
+
+.prose h2 { font-size: 32px; margin-top: 2.75rem; }
+.prose h3 { margin-top: 2rem; }
+.prose ul, .prose ol { margin-bottom: 1.25rem; }
+.prose li { margin-bottom: 0.4rem; }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 1rem 0; }
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-head);
+  font-size: 24px;
+  line-height: 1.4;
+}
+.prose blockquote p:last-child { margin-bottom: 0; }
+
+/*--------------------------------------------------------------
   FOOTER
 --------------------------------------------------------------*/
 .site-footer {
@@ -813,4 +849,9 @@ legend.form-label { float: none; width: 100%; padding: 0; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .pull-quote { font-size: 21px; }
   .section-head { flex-direction: column; gap: 1rem; }
+}
+
+/* Ni menupunkter: stram afstanden lidt op på de smalleste desktopbredder */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .navbar-nav .nav-link:not(.nav-cta) { padding: 0.5rem 0.55rem !important; white-space: nowrap; }
 }
