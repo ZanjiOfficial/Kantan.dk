@@ -2,6 +2,7 @@
 title: Kulturchok i Japan, mærkelig kultur eller bare perspektiv?
 description: Træpenisser i optog, lotteri til koncertbilletter og tre lag af høflighed. Kulturchok i Japan handler mest om perspektiv.
 date: 2026-09-19
+hero: images/gallery/kyoto-6165-large.jpg
 ---
 
 Japan har fået en skygge på skuldrene her i Vesten: landet, hvor al den mærkelige teknologi kommer fra, kendt for tegneserier, animation og "mærkelig kultur". Det gør, at mange forventer et kulturchok i Japan, allerede inden de er landet.

@@ -24,6 +24,7 @@ date: 2026-09-19
 featured: true          # valgfri: vis på forsiden (de 3 nyeste)
 cta: rejseplan          # valgfri: hvilken ydelse bunden peger på, rejseplan (standard) eller wh
 image: images/gallery/kyoto-6068-large.jpg   # valgfri: billede på kortet
+hero: images/gallery/kyoto-6165-large.jpg    # valgfri: billede bag titlen (bruges også som delingsbillede)
 ---
 
 Brødtekst i Markdown. Brug ## til overskrifter (titlen er allerede h1).

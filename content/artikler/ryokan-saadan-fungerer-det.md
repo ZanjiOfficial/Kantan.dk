@@ -3,6 +3,7 @@ title: Ryokan, sådan fungerer en nat i et japansk gæstehus
 description: Sko af ved døren, aftensmad på et fast tidspunkt og seng på gulvet. Her er, hvad du kan vente dig af en nat på ryokan.
 date: 2026-09-14
 featured: true
+hero: images/gallery/kyoto-6068-large.jpg
 ---
 
 Et ryokan er et traditionelt japansk gæstehus, og en nat der er noget helt andet end et hotelophold. Rytmen er fastlagt af huset, og det er en del af oplevelsen.

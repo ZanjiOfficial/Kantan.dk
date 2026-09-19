@@ -79,7 +79,7 @@ const head = ({ title, description, url, image, prefix, type = 'website' }) => `
         <meta property="og:type" content="${type}">
         <meta property="og:title" content="${esc(title)}, Kantan">
         <meta property="og:description" content="${esc(description)}">
-        <meta property="og:image" content="${SITE}/${image ?? 'images/hero.jpg'}">
+        <meta property="og:image" content="${SITE}/${image ?? 'images/hero-hiroshima.jpg'}">
         <meta property="og:url" content="${SITE}/${url}">
 
         <link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">
@@ -222,9 +222,9 @@ mkdirSync(OUT);
 for (const a of artikler) {
   aktuel = a.slug;
   writeFileSync(`${OUT}/${a.slug}.html`, head({
-    title: a.title, description: a.description, url: `${OUT}/${a.slug}.html`, image: a.image, prefix: '../', type: 'article',
+    title: a.title, description: a.description, url: `${OUT}/${a.slug}.html`, image: a.image ?? a.hero, prefix: '../', type: 'article',
   }) + nav(false) + `
-        <section class="hero-simple">
+        <section class="hero-simple${a.hero ? ' has-image' : ''}"${a.hero ? ` style="background-image:url('../${esc(a.hero)}')"` : ''}>
           <div class="container">
             <div class="text-center text-center-narrow">
               <span class="hanko" aria-hidden="true">記</span>

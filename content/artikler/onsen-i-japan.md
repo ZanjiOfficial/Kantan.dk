@@ -3,6 +3,7 @@ title: Onsen i Japan, reglerne ingen fortæller dig
 description: Et japansk varmt bad har faste ritualer. Her er de vigtigste, så du kan slappe af i stedet for at gætte.
 date: 2026-09-19
 featured: true
+hero: images/onsen-hero.jpg
 ---
 
 Onsen er varme kilder, og badet er en fast del af japansk hverdag. Det er ikke et spa i vestlig forstand, men et fælles bad med regler, som alle kender, og som ingen forklarer dig.
