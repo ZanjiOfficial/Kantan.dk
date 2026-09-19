@@ -2,7 +2,7 @@
 title: Onsen i Japan, reglerne ingen fortæller dig
 description: Et japansk varmt bad har faste ritualer. Her er de vigtigste, så du kan slappe af i stedet for at gætte.
 date: 2026-09-19
-featured: true
+emne: onsen i Japan
 hero: images/Onsen/images.jpg
 ---
 

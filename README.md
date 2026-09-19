@@ -14,14 +14,14 @@ Buildet kører også automatisk ved deploy, men kør det lokalt for at se result
 
 Artiklerne er kulturstof om Japan, der skal føre læseren videre til en ydelse: slut med et link til den relevante pakke (fx `[Rejseplan + booking](kontakt.html?pakke=booking)`) og vælg `cta:` efter målgruppe.
 
-Ny artikel = ny fil, fx `content/artikler/mit-emne.md` (filnavnet bliver adressen):
+Alle artikler vises i forsidens artikelsektion som en karrusel (3 ad gangen, pilene skubber ét kort ad gangen, ingen auto-rotation; logikken står i `build.mjs`). Nederst i hver artikel sidder en spørgsmålsformular (navn, e-mail og et valgfrit spørgsmål), som sendes til kontakt@kantan.dk via formsubmit.co (`article-form.js`). Buildet laver selv en klikbar indholdsfortegnelse af `##`-overskrifterne (lige før den første) og flytter en `## Kilder`-sektion ned under spørgsmålsformularen. Ny artikel = ny fil, fx `content/artikler/mit-emne.md` (filnavnet bliver adressen):
 
 ```
 ---
 title: Overskrift
 description: Ét-to sætninger, vises på kortet og i søgeresultater.
 date: 2026-09-19
-featured: true          # valgfri: vis på forsiden (de 3 nyeste)
+emne: onsen i Japan      # valgfri: står i overskriften over spørgsmålsformularen ("Nogle spørgsmål til onsen i Japan?"), standard er titlen
 cta: rejseplan          # valgfri: hvilken ydelse bunden peger på, rejseplan (standard) eller wh
 image: images/gallery/kyoto-6068-large.jpg   # valgfri: billede på kortet
 hero: images/gallery/kyoto-6165-large.jpg    # valgfri: billede bag titlen (bruges også som delingsbillede)

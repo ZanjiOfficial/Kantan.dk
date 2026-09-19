@@ -8,7 +8,6 @@ import { marked } from 'marked';
 const SRC = 'content/artikler';
 const OUT = 'artikler';
 const SITE = 'https://kantan.dk';
-const FORSIDE_MAX = 3;
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const dato = (d) => new Date(d).toLocaleDateString('da-DK', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
@@ -22,6 +21,7 @@ const CTA = {
 // Cache-busting af stylesheet (Cloudflare cacher style.css i timevis): hash af indholdet.
 const cssHash = createHash('sha256').update(readFileSync('style.css')).digest('hex').slice(0, 8);
 const jsHash = createHash('sha256').update(readFileSync('clean-urls.js')).digest('hex').slice(0, 8);
+const askHash = createHash('sha256').update(readFileSync('article-form.js')).digest('hex').slice(0, 8);
 
 // --- Indlæs artikler ---------------------------------------------------------
 function parse(file) {
@@ -38,8 +38,9 @@ function parse(file) {
   }
   if (Number.isNaN(Date.parse(meta.date))) throw new Error(`${file}: "date" skal være ÅÅÅÅ-MM-DD`);
   meta.cta ??= 'rejseplan';
+  meta.emne ??= meta.title; // bruges i overskriften over spørgsmålsformularen: "Nogle spørgsmål til <emne>?"
   if (!CTA[meta.cta]) throw new Error(`${file}: "cta" skal være en af ${Object.keys(CTA).join(', ')}`);
-  return { ...meta, slug: file.replace(/\.md$/, ''), featured: meta.featured === 'true', body: m[2] };
+  return { ...meta, slug: file.replace(/\.md$/, ''), body: m[2] };
 }
 
 const files = readdirSync(SRC).filter((f) => f.endsWith('.md'));
@@ -64,6 +65,9 @@ marked.use({
     }
   },
 });
+
+// Links til kilder (https:) og til andre artikler åbner i en ny fane; links til resten af sitet (fx kontakt.html) åbner som normalt.
+const nyFane = (html) => html.replace(/<a href="((?:https?:\/\/|[\w-]+\.html)[^"]*)"/g, '<a href="$1" target="_blank" rel="noopener noreferrer"');
 
 // --- Skabeloner -------------------------------------------------------------
 const head = ({ title, description, url, image, prefix, type = 'website' }) => `<!doctype html>
@@ -189,7 +193,7 @@ const foot = (c) => `
               </div>
             </div>
             <div class="footer-bottom text-center">
-              © 2026 Kantan. Alle rettigheder forbeholdes.
+              © 2026 Kantan · CVR 45990648. Alle rettigheder forbeholdes.
             </div>
           </div>
         </footer>
@@ -224,12 +228,92 @@ const card = (a, dir, up) => `
                 </a>
               </div>`;
 
+// Spørgsmålsformular nederst i hver artikel. Sendes til kontakt@kantan.dk via formsubmit.co (se article-form.js). Kun navn og e-mail er påkrævet.
+const spoergsmaal = (a) => `
+                <section class="article-ask" aria-labelledby="ask-h">
+                  <h2 id="ask-h">Nogle spørgsmål til <strong>${esc(a.emne)}</strong>?</h2>
+                  <p class="article-ask-intro">Udfyld følgende, så vender jeg tilbage hurtigst muligt.</p>
+                  <form action="https://formsubmit.co/kontakt@kantan.dk" method="POST">
+                    <input type="hidden" name="_subject" value="Spørgsmål til «${esc(a.title)}»">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="${SITE}/tak.html">
+                    <input type="hidden" name="Artikel" value="${esc(a.title)}">
+                    <input type="hidden" name="Side" value="${SITE}/${OUT}/${a.slug}">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="ask-navn">Navn</label>
+                          <input class="form-control" type="text" id="ask-navn" name="Navn" autocomplete="name" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="ask-email">E-mail</label>
+                          <input class="form-control" type="email" id="ask-email" name="E-mail" autocomplete="email" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="ask-sporgsmaal">Dine egne spørgsmål <span class="opt">(valgfrit)</span></label>
+                      <textarea class="form-control" id="ask-sporgsmaal" name="Spørgsmål" rows="4"></textarea>
+                    </div>
+                    <p class="form-status" role="alert" hidden></p>
+                    <button type="submit" class="btn btn-light">Send</button>
+                    <p class="form-note">Jeg bruger kun dine oplysninger til at svare på din henvendelse.</p>
+                  </form>
+                  <p class="article-ask-thanks" role="status" hidden>Tak! Jeg har modtaget din besked og vender tilbage hurtigst muligt.</p>
+                </section>`;
+
+// Artikelbrødtekst -> HTML med id på hver h2, en klikbar indholdsfortegnelse lige før første overskrift, og "Kilder" trukket ud,
+// så de kan stå under spørgsmålsformularen.
+const slugify = (t) => t.toLowerCase().replace(/æ/g, 'ae').replace(/ø/g, 'oe').replace(/å/g, 'aa')
+  .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+function render(a) {
+  let hoved = a.body;
+  let kilder = '';
+  const k = a.body.search(/^## Kilder\s*$/m);
+  if (k >= 0) {
+    const rest = a.body.slice(k);
+    const n = rest.slice(3).search(/^## /m);
+    const end = n < 0 ? rest.length : n + 3;
+    kilder = rest.slice(0, end);
+    hoved = a.body.slice(0, k) + rest.slice(end);
+  }
+  const brugt = new Set();
+  const afsnit = [];
+  const medIds = (html) => html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner) => {
+    const tekst = inner.replace(/<[^>]+>/g, '');
+    let id = slugify(tekst.replace(/&[a-z#0-9]+;/gi, '')) || 'afsnit';
+    for (let i = 2; brugt.has(id); i++) id = `${id.replace(/-\d+$/, '')}-${i}`;
+    brugt.add(id);
+    afsnit.push({ id, tekst });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+  let html = medIds(nyFane(marked.parse(hoved)));
+  const kilderHtml = kilder ? medIds(nyFane(marked.parse(kilder))) : '';
+  if (afsnit.length >= 2) {
+    const toc = `<nav class="article-toc" aria-labelledby="toc-h">
+                  <p class="eyebrow" id="toc-h">Indholdsfortegnelse</p>
+                  <ol>${afsnit.map((s) => `
+                    <li><a href="#${s.id}">${s.tekst}</a></li>`).join('')}
+                  </ol>
+                </nav>
+`;
+    html = html.includes('<h2 ') ? html.replace('<h2 ', () => toc + '<h2 ') : html;
+  }
+  return { html, kilder: kilderHtml };
+}
+
 // --- Skriv artikelsider -----------------------------------------------------
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT);
 
 for (const a of artikler) {
   aktuel = a.slug;
+  const { html, kilder } = render(a);
   writeFileSync(`${OUT}/${a.slug}.html`, head({
     title: a.title, description: a.description, url: `${OUT}/${a.slug}`, image: a.image ?? a.hero, prefix: '../', type: 'article',
   }) + nav(false) + `
@@ -248,7 +332,9 @@ for (const a of artikler) {
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8 prose">
-${marked.parse(a.body)}
+${html}
+${spoergsmaal(a)}
+${kilder}
                 <div class="article-follow">
                   <p>Følg Kantan for mere om Japan</p>
                   ${SOCIALE}
@@ -258,6 +344,7 @@ ${marked.parse(a.body)}
             </div>
           </div>
         </article>
+        <script src="../article-form.js?v=${askHash}"></script>
 ` + foot(CTA[a.cta]));
 }
 
@@ -284,9 +371,9 @@ writeFileSync(`${OUT}/index.html`, head({
         </section>
 ` + foot(CTA.rejseplan));
 
-// --- Forsiden: fremhævede artikler + stylesheet-hash ------------------------
-const fremhaevet = artikler.filter((a) => a.featured).slice(0, FORSIDE_MAX);
-const sektion = fremhaevet.length ? `
+// --- Forsiden: alle artikler i et roterende udvalg + stylesheet-hash ---------
+// Alle kort ligger i HTML'en (virker uden JS). Scriptet gør rækken til en karrusel: 3/2/1 kort ad gangen efter skærmbredde, og pilene skubber ét kort ad gangen (rundt, ingen auto-rotation).
+const sektion = artikler.length ? `
         <section id="artikler" class="section bg-alt">
           <div class="container">
             <div class="section-head">
@@ -297,11 +384,68 @@ const sektion = fremhaevet.length ? `
                 <p class="lead-text">Praktisk viden om Japan, skrevet ud fra år i landet.</p>
               </div>
             </div>
-            <div class="row g-4">${fremhaevet.map((a) => card(a, `${OUT}/`, '')).join('')}
+            <div class="rotator" data-rotator>
+              <div class="row g-4 rotator-track">${artikler.map((a) => card(a, `${OUT}/`, '')).join('')}
+              </div>
+            </div>
+            <div class="rotator-nav" data-rotator-nav hidden>
+              <button type="button" class="rotator-btn" data-dir="-1" aria-label="Forrige artikel">&larr;</button>
+              <button type="button" class="rotator-btn" data-dir="1" aria-label="Næste artikel">&rarr;</button>
             </div>
             <p class="text-center mt-5"><a href="${OUT}/index.html" class="btn btn-ghost">Alle artikler</a></p>
           </div>
         </section>
+        <script>
+          (() => {
+            const wrap = document.querySelector('[data-rotator]');
+            const nav = document.querySelector('[data-rotator-nav]');
+            if (!wrap || !nav) return;
+            const track = wrap.firstElementChild;
+            const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const ms = reduce ? 0 : 450;
+            const perView = () => (matchMedia('(min-width: 992px)').matches ? 3 : matchMedia('(min-width: 768px)').matches ? 2 : 1);
+            const step = 'translateX(calc(-100% / var(--n)))';
+            let busy = false;
+            // Kort uden for billedet må ikke kunne fokuseres med tastaturet
+            const mark = () => [...track.children].forEach((c, i) => { c.inert = i >= perView(); });
+            const setup = () => {
+              const on = track.children.length > perView();
+              wrap.classList.toggle('is-carousel', on);
+              nav.hidden = !on;
+              track.style.transition = 'none';
+              track.style.transform = '';
+              mark();
+            };
+            const next = () => {
+              track.style.transition = 'transform ' + ms + 'ms ease';
+              track.style.transform = step;
+              setTimeout(() => {
+                track.style.transition = 'none';
+                track.append(track.firstElementChild);
+                track.style.transform = '';
+                mark();
+                busy = false;
+              }, ms);
+            };
+            const prev = () => {
+              track.style.transition = 'none';
+              track.prepend(track.lastElementChild);
+              track.style.transform = step;
+              track.offsetWidth; // tving genberegning, så starten står uden animation
+              track.style.transition = 'transform ' + ms + 'ms ease';
+              track.style.transform = '';
+              setTimeout(() => { mark(); busy = false; }, ms);
+            };
+            nav.addEventListener('click', (e) => {
+              const b = e.target.closest('[data-dir]');
+              if (!b || busy) return;
+              busy = true;
+              if (b.dataset.dir === '1') next(); else prev();
+            });
+            addEventListener('resize', setup);
+            setup();
+          })();
+        </script>
         ` : '';
 
 const MARK = /<!-- artikler:start -->[\s\S]*?<!-- artikler:end -->/;
@@ -318,4 +462,4 @@ for (const f of readdirSync('.').filter((f) => f.endsWith('.html'))) {
   if (n !== s) writeFileSync(f, n);
 }
 
-console.log(`${artikler.length} artikler bygget, ${fremhaevet.length} på forsiden, css ?v=${cssHash}`);
+console.log(`${artikler.length} artikler bygget (alle i forsidens karrusel), css ?v=${cssHash}`);

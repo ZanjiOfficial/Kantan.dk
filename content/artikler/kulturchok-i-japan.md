@@ -2,6 +2,7 @@
 title: Kulturchok i Japan, mærkelig kultur eller bare perspektiv?
 description: Træpenisser i optog, lotteri til koncertbilletter og tre lag af høflighed. Kulturchok i Japan handler mest om perspektiv.
 date: 2026-09-19
+emne: kulturchok i Japan
 hero: images/gallery/kyoto-6165-large.jpg
 ---
 
@@ -31,7 +32,7 @@ Set udefra er det mærkeligt. Set indefra er det en høsttradition med samme gru
 
 Mange større koncerter i Japan sælges ikke efter "først til mølle", men ved lodtrækning, *chūsen* (抽選). Man tilmelder sig, ofte via et fanklub-medlemskab, og får først bagefter at vide, om man har vundet. Det betyder, at du aldrig kan være sikker på en billet, uanset hvor tidligt du er oppe.
 
-Formålet er typisk at holde videresalg nede og give flere en fair chance, men for en udlænding, der planlægger en rejse omkring en koncert, er det svært at gennemskue.
+Formålet er typisk at holde videresalg nede og give flere en fair chance, men for en udlænding, der planlægger en rejse omkring en koncert, er det svært at gennemskue. Hele forløbet, fra fanklub og lodtrækning til billetter med dit navn på, kan du læse i [Koncerter i Japan](koncertbilletter-i-japan.md).
 
 ## Sproget har tre lag
 
@@ -77,7 +78,7 @@ Ikke for at få en god rejse, men mange små steder, blandt andet mange ryokan (
 
 ### Hvordan får man billetter til koncerter i Japan?
 
-Ofte via lodtrækning, *chūsen* (抽選), hvor man tilmelder sig i en periode og får svar bagefter. Mange arrangører kræver fanklub-medlemskab, og reglerne varierer, så tjek altid arrangørens egen side.
+Ofte via lodtrækning, *chūsen* (抽選), hvor man tilmelder sig i en periode og får svar bagefter. Mange arrangører kræver fanklub-medlemskab, og reglerne varierer, så tjek altid arrangørens egen side. Læs mere i [Koncerter i Japan](koncertbilletter-i-japan.md).
 
 ### Kan man undgå kulturchok i Japan?
 

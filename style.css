@@ -266,9 +266,11 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
 .vertical-mark {
   writing-mode: vertical-rl;
   font-family: var(--font-jp);
-  font-size: 15px;
-  letter-spacing: 6px;
-  color: rgba(251, 248, 243, 0.55);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(251, 248, 243, 0.95);
+  text-shadow: 0 1px 3px rgba(20, 18, 16, 0.7), 0 0 18px rgba(20, 18, 16, 0.6);
 }
 
 .nav-link {
@@ -302,15 +304,19 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   display: flex;
   align-items: flex-end;
   color: var(--paper);
-  background: linear-gradient(180deg, rgba(20,18,16,0.15) 0%, rgba(20,18,16,0.65) 78%, rgba(20,18,16,0.88) 100%),
-              #2a2622 center / cover no-repeat;
-  background-image: linear-gradient(180deg, rgba(20,18,16,0.15) 0%, rgba(20,18,16,0.65) 78%, rgba(20,18,16,0.88) 100%),
-              url("images/hero-hiroshima.jpg");
+  background-color: #2a2622;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, rgba(20,18,16,0.6) 0%, rgba(20,18,16,0.4) 50%, rgba(20,18,16,0.2) 100%),
+              linear-gradient(180deg, rgba(20,18,16,0.3) 0%, rgba(20,18,16,0.62) 60%, rgba(20,18,16,0.88) 100%),
+              url("images/hero-okinawa.jpg");
 }
 .hero .container { padding-bottom: 84px; padding-top: 120px; position: relative; }
 .hero h1 { color: var(--paper); max-width: 14ch; }
-.hero .eyebrow { color: #E9C9AE; }
-.hero .lead-text { color: rgba(251, 248, 243, 0.88); max-width: 46ch; }
+.hero .eyebrow { color: #F3D9BF; }
+.hero .lead-text { color: rgba(251, 248, 243, 0.96); max-width: 46ch; }
+.hero h1, .hero .eyebrow, .hero .lead-text { text-shadow: 0 1px 2px rgba(20,18,16,0.55), 0 2px 18px rgba(20,18,16,0.55); }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -492,6 +498,28 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   display: flex;
   flex-direction: column;
 }
+/* Forsidens artikelrække: scriptet slår .is-carousel til, og pilene skubber ét kort ad gangen */
+.rotator { --n: 1; }
+@media (min-width: 768px) { .rotator { --n: 2; } }
+@media (min-width: 992px) { .rotator { --n: 3; } }
+.rotator.is-carousel { overflow: hidden; margin: -8px -0.75rem; padding: 8px 0; }
+.rotator.is-carousel .rotator-track { flex-wrap: nowrap; margin-left: 0; margin-right: 0; }
+.rotator.is-carousel .rotator-track > * { flex: 0 0 calc(100% / var(--n)); width: calc(100% / var(--n)); max-width: none; }
+.rotator-nav { display: flex; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
+.rotator-btn {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.rotator-btn:hover, .rotator-btn:focus-visible { background: var(--ink); color: var(--paper); }
+
 .price-card.featured {
   background-color: var(--ink);
   color: var(--paper);
@@ -524,6 +552,64 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
   margin: 0.5rem 0 1.25rem;
 }
 .price-amount span { font-size: 15px; font-family: var(--font-body); color: var(--ink-soft); }
+/* Introtilbud: rød stempel-tag + gammel pris, og den nuværende pris på et træskilt */
+.price-offer { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.85rem; }
+.price-tag {
+  background-color: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  box-shadow: 0 4px 10px rgba(124, 44, 29, 0.3);
+  transform: rotate(-2deg);
+}
+.price-old {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+.price-card.featured .price-old { color: rgba(251,248,243,0.7); text-decoration-color: #E9C9AE; }
+.price-offer + .price-amount { margin-top: 0.85rem; }
+.price-offer + .price-amount span { display: block; margin-top: 0.4rem; }
+.price-board {
+  position: relative;
+  display: inline-block;
+  margin: 0.25rem 0.6rem 0.25rem 0;
+  padding: 0.3rem 1.6rem 0.4rem;
+  font-weight: 700;
+  color: #2E1808;
+  text-shadow: 0 1px 0 rgba(255, 233, 200, 0.45);
+  background-color: #BE8B57;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='120'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.28' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.12 0 0 0 0 0.04 0 0 0 2.2 -0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(255, 236, 205, 0.28) 0%, rgba(255, 236, 205, 0) 35%, rgba(60, 30, 10, 0.2) 100%);
+  background-size: 100% 100%;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 240, 215, 0.45), inset 0 -3px 0 rgba(60, 30, 10, 0.28), 0 8px 16px rgba(27, 26, 24, 0.22);
+  transform: rotate(-1.5deg);
+}
+.price-board::before,
+.price-board::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #E8D9C4, #6B5A46 70%);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+.price-board::before { left: 0.6rem; }
+.price-board::after { right: 0.6rem; }
 .price-card.featured .price-amount span { color: rgba(251,248,243,0.7); }
 .price-list {
   list-style: none;
@@ -590,6 +676,48 @@ a.btn:focus-visible, button:focus-visible, a:focus-visible {
 .cta-band .hanko { margin: 0 auto 1.5rem; }
 .cta-band h2 { color: var(--paper); }
 .cta-band p { color: rgba(251, 248, 243, 0.8); font-size: 19px; }
+/* Foto som baggrund (forsiden): mørkt slør, så teksten stadig er let at læse */
+.cta-band.has-photo {
+  background-image: linear-gradient(rgba(20, 18, 16, 0.6), rgba(20, 18, 16, 0.72)), url("images/bg-tempel.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  background-repeat: no-repeat;
+}
+.cta-band.has-photo h2,
+.cta-band.has-photo p { text-shadow: 0 1px 2px rgba(20, 18, 16, 0.5), 0 2px 16px rgba(20, 18, 16, 0.5); }
+.cta-band.has-photo p { color: rgba(251, 248, 243, 0.95); }
+
+/* Sektion med fotobaggrund (priser på forsiden) */
+.section-photo {
+  position: relative;
+  background-color: #2a2622;
+  background-image: url("images/bg-have.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.section-photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 18, 16, 0.66) 0%, rgba(20, 18, 16, 0.4) 45%, rgba(20, 18, 16, 0.66) 100%); }
+.section-photo > .container { position: relative; }
+.section-photo .eyebrow { color: #F3D9BF; }
+.section-photo h2 { color: var(--paper); }
+.section-photo .lead-text,
+.section-photo .price-note { color: rgba(251, 248, 243, 0.94); text-shadow: 0 1px 8px rgba(20, 18, 16, 0.6); }
+.section-photo .section-head h2,
+.section-photo .section-head .lead-text { text-shadow: 0 1px 2px rgba(20, 18, 16, 0.5), 0 2px 16px rgba(20, 18, 16, 0.5); }
+.section-photo .price-card,
+.section-photo .feature-card { box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35); }
+.section-photo-gade { background-image: url("images/plan-gade.jpg"); }
+.section-photo-gade::before { background: linear-gradient(180deg, rgba(20, 18, 16, 0.74) 0%, rgba(20, 18, 16, 0.58) 45%, rgba(20, 18, 16, 0.74) 100%); }
+
+/* Den fremhævede prisbox på forsiden: beige i stedet for sort, så den ikke bliver et sort hul på fotobaggrunden */
+.section-photo .price-card.featured { background-color: var(--paper-alt); color: var(--ink); border-color: var(--line); }
+.section-photo .price-card.featured h3,
+.section-photo .price-card.featured .price-amount { color: var(--ink); }
+.section-photo .price-card.featured .price-amount span,
+.section-photo .price-card.featured .price-old { color: var(--ink-soft); }
+.section-photo .price-card.featured .price-old { text-decoration-color: var(--accent); }
+.section-photo .price-card.featured .price-list li { color: var(--ink-soft); }
+.section-photo .price-card.featured .price-list svg { color: var(--accent); }
 
 /*--------------------------------------------------------------
   KONTAKT
@@ -793,7 +921,15 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 .article-card p { color: var(--ink-soft); }
 .article-card-more { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--accent); }
 
-.prose h2 { font-size: 32px; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.prose h2 { font-size: 32px; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.article-toc { margin: 2.5rem 0 0; padding: 1.4rem 1.75rem 1.2rem; background-color: var(--paper-alt); border-left: 3px solid var(--accent); }
+.article-toc .eyebrow { display: block; margin-bottom: 0.6rem; }
+.prose .article-toc ol { margin: 0; padding-left: 1.4rem; }
+.prose .article-toc li:last-child { margin-bottom: 0; }
+.article-toc li { margin-bottom: 0.35rem; padding-left: 0.2rem; }
+.article-toc li::marker { color: var(--accent); font-weight: 700; }
+.article-toc a { color: var(--ink); text-decoration: none; font-weight: 500; }
+.article-toc a:hover, .article-toc a:focus-visible { color: var(--accent); text-decoration: underline; }
 .prose h3 { margin-top: 2rem; }
 /* FAQ: <section class="faq"> i markdown, så sektionen står tydeligt for sig */
 .prose .faq {
@@ -808,6 +944,9 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 .prose ul, .prose ol { margin-bottom: 1.25rem; }
 .prose li { margin-bottom: 0.4rem; }
 .prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 1rem 0; }
+.prose .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.prose .photo-pair p { margin: 0; }
+.prose .photo-pair img { margin: 0; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
 .prose blockquote {
   border-left: 3px solid var(--accent);
   padding-left: 1.5rem;
@@ -829,6 +968,18 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 .site-footer h4 { font-size: 20px; }
 .site-footer a { color: var(--ink-soft); text-decoration: none; }
 .site-footer a:hover { color: var(--accent); }
+/* Spørgsmålsformular nederst i artiklerne */
+.article-ask { margin-top: 3.5rem; padding: 2.25rem 2.25rem 1.75rem; background-color: var(--accent-deep); color: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); }
+.prose .article-ask h2 { margin: 0 0 0.5rem; padding: 0; border: 0; font-size: 32px; color: var(--paper); }
+.article-ask h2 strong { color: #E9C9AE; font-weight: 700; }
+.article-ask .form-label { color: var(--paper); }
+.article-ask .form-label .opt { color: rgba(251, 248, 243, 0.75); }
+.article-ask .form-control { background-color: var(--paper); border-color: transparent; }
+.article-ask .form-control:focus { background-color: var(--white); border-color: #E9C9AE; box-shadow: 0 0 0 3px rgba(233, 201, 174, 0.45); }
+.article-ask .form-note { text-align: left; color: rgba(251, 248, 243, 0.78); }
+.article-ask .form-status { color: var(--ink); }
+.article-ask-thanks { margin: 0; padding: 0.9rem 1.1rem; border-left: 3px solid var(--accent); background-color: var(--paper); color: var(--ink); font-weight: 600; }
+@media (max-width: 575px) { .article-ask { padding: 1.75rem 1.25rem 1.25rem; } }
 .article-follow { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .article-follow p { margin: 0; font-weight: 600; color: var(--ink); }
 .social-links { display: flex; gap: 0.6rem; margin-top: 1.25rem; }
@@ -858,6 +1009,8 @@ legend.form-label { float: none; width: 100%; padding: 0; }
   .hero { min-height: 70vh; }
   .hero .container { padding-bottom: 60px; }
   .hero .vertical-mark { display: none; }
+  /* g-5 giver 1.5rem negativ margen, men containeren har kun 0.75rem luft: siden kunne rulles sidelæns */
+  .row.g-5 { --bs-gutter-x: 1.5rem; }
   .gallery { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -870,6 +1023,8 @@ legend.form-label { float: none; width: 100%; padding: 0; }
   .section { padding-top: 64px; padding-bottom: 64px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
+  /* På telefonen fylder teksten hele bredden, så fotoet dæmpes jævnt i stedet for kun til venstre */
+  .hero { background-image: linear-gradient(rgba(20, 18, 16, 0.5), rgba(20, 18, 16, 0.5)), linear-gradient(180deg, rgba(20, 18, 16, 0.3) 0%, rgba(20, 18, 16, 0.62) 60%, rgba(20, 18, 16, 0.88) 100%), url("images/hero-okinawa.jpg"); }
   .contact-card, .contact-form-card { padding: 1.5rem; }
   .choice-grid { grid-template-columns: 1fr; }
   .contact-row { flex-wrap: wrap; }
