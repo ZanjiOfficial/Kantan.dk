@@ -1,13 +1,20 @@
 <!doctype html>
 <html lang="da">
     <head>
-        <title>Kontakt, Kantan rejseplaner og working holiday i Japan</title>
+        <title>Kontakt Kantan: få et forslag til din tur til Japan</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
         <meta name="author" content="Kantan">
-        <meta name="description" content="Fortæl om den Japan-rejse eller det working holiday-år, du drømmer om, så vender jeg tilbage med et forslag og en pris.">
+        <meta name="description" content="Fortæl om den Japan-rejse eller det working holiday-år, du drømmer om, så vender jeg tilbage med et forslag og en pris, typisk inden for en hverdag.">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Kontakt Kantan: få et forslag til din tur til Japan">
+        <meta property="og:description" content="Fortæl om den Japan-rejse eller det working holiday-år, du drømmer om, så vender jeg tilbage med et forslag og en pris, typisk inden for en hverdag.">
+        <meta property="og:image" content="https://kantan.dk/images/hero-okinawa.jpg">
+        <meta property="og:url" content="https://kantan.dk/kontakt">
+        <meta name="twitter:card" content="summary_large_image">
 
         <link rel="icon" type="image/svg+xml" href="favicon.svg">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -453,7 +460,11 @@
                 if (j.success !== true && j.success !== 'true') throw j;
                 location.href = 'tak.html';
               }).catch(function () {
-                status.innerHTML = 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til <a href="mailto:kontakt@kantan.dk">kontakt@kantan.dk</a>.';
+                // formsubmit.co afviser sider åbnet fra disken eller localhost, så en lokal forhåndsvisning kan ikke sende
+                var lokal = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+                status.innerHTML = lokal
+                  ? 'Formularen kan kun sende fra den udgivne side på kantan.dk, ikke fra en lokal forhåndsvisning.'
+                  : 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til <a href="mailto:kontakt@kantan.dk">kontakt@kantan.dk</a>.';
                 status.hidden = false;
                 btn.disabled = false;
                 btn.innerHTML = label;

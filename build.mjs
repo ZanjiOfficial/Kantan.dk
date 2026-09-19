@@ -73,7 +73,7 @@ const nyFane = (html) => html.replace(/<a href="((?:https?:\/\/|[\w-]+\.html)[^"
 const head = ({ title, description, url, image, prefix, type = 'website' }) => `<!doctype html>
 <html lang="da">
     <head>
-        <title>${esc(title)}, Kantan</title>
+        <title>${esc(title)}</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,10 +82,11 @@ const head = ({ title, description, url, image, prefix, type = 'website' }) => `
         <meta name="description" content="${esc(description)}">
 
         <meta property="og:type" content="${type}">
-        <meta property="og:title" content="${esc(title)}, Kantan">
+        <meta property="og:title" content="${esc(title)}">
         <meta property="og:description" content="${esc(description)}">
         <meta property="og:image" content="${SITE}/${image ?? 'images/hero-hiroshima.jpg'}">
         <meta property="og:url" content="${SITE}/${url}">
+        <meta name="twitter:card" content="summary_large_image">
 
         <link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">
         <link rel="icon" type="image/png" sizes="32x32" href="${prefix}favicon-32.png">
@@ -315,7 +316,7 @@ for (const a of artikler) {
   aktuel = a.slug;
   const { html, kilder } = render(a);
   writeFileSync(`${OUT}/${a.slug}.html`, head({
-    title: a.title, description: a.description, url: `${OUT}/${a.slug}`, image: a.image ?? a.hero, prefix: '../', type: 'article',
+    title: a.metatitle ?? `${a.title}, Kantan`, description: a.metadescription ?? a.description, url: `${OUT}/${a.slug}`, image: a.image ?? a.hero, prefix: '../', type: 'article',
   }) + nav(false) + `
         <section class="hero-simple${a.hero ? ' has-image' : ''}"${a.hero ? ` style="background-image:url('../${esc(a.hero)}')"` : ''}>
           <div class="container">
@@ -350,7 +351,7 @@ ${kilder}
 
 // --- Artikeloversigt --------------------------------------------------------
 writeFileSync(`${OUT}/index.html`, head({
-  title: 'Artikler om Japan', description: 'Artikler om at rejse til, bo og arbejde i Japan, skrevet af en dansker der har boet i landet.', url: `${OUT}/`, prefix: '../',
+  title: "Artikler om at rejse til og bo i Japan. Kantan", description: "Artikler om at rejse til, bo og arbejde i Japan: onsen, ryokan, kulturchok og koncerter, skrevet af en dansker, der har boet i landet.", url: `${OUT}/`, prefix: '../',
 }) + nav(true) + `
         <section class="hero-simple has-image" style="background-image:url('../images/gallery/kyoto-6110-large.jpg')">
           <div class="container">
@@ -370,6 +371,26 @@ writeFileSync(`${OUT}/index.html`, head({
           </div>
         </section>
 ` + foot(CTA.rejseplan));
+
+// --- sitemap.xml -----------------------------------------------------------
+// Adresserne er de rene (uden .html), samme som i og:url. tak.html er med vilje udeladt (noindex).
+// Kun artikler får <lastmod> (deres dato); de øvrige sider ville få en gættet dato.
+const nyeste = artikler[0]?.date;
+const sider = [
+  { loc: '', lastmod: undefined },
+  { loc: 'working-holiday' },
+  { loc: 'kontakt' },
+  { loc: `${OUT}/`, lastmod: nyeste },
+  ...artikler.map((a) => ({ loc: `${OUT}/${a.slug}`, lastmod: a.date })),
+];
+writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sider.map((p) => `  <url>
+    <loc>${SITE}/${p.loc}</loc>${p.lastmod ? `
+    <lastmod>${p.lastmod}</lastmod>` : ''}
+  </url>`).join('\n')}
+</urlset>
+`);
 
 // --- Forsiden: alle artikler i et roterende udvalg + stylesheet-hash ---------
 // Alle kort ligger i HTML'en (virker uden JS). Scriptet gør rækken til en karrusel: 3/2/1 kort ad gangen efter skærmbredde, og pilene skubber ét kort ad gangen (rundt, ingen auto-rotation).

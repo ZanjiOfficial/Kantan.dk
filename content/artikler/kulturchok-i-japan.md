@@ -1,8 +1,10 @@
 ---
 title: Kulturchok i Japan, mærkelig kultur eller bare perspektiv?
 description: Træpenisser i optog, lotteri til koncertbilletter og tre lag af høflighed. Kulturchok i Japan handler mest om perspektiv.
-date: 2026-09-19
-emne: kulturchok i Japan
+date: 2026-09-17
+$1
+metatitle: Kulturchok i Japan: mærkelig kultur eller perspektiv. Kantan
+metadescription: Træpenisser i optog, lotteri til koncertbilletter og tre lag af høflighed. Kulturchok i Japan handler mest om perspektiv, ikke om mærkelig kultur.
 hero: images/gallery/kyoto-6165-large.jpg
 ---
 

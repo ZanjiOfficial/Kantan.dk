@@ -35,7 +35,11 @@ document.querySelectorAll('.article-ask form').forEach((form) => {
       if (j.success !== true && j.success !== 'true') throw j;
       tak();
     } catch {
-      status.innerHTML = 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til <a href="mailto:kontakt@kantan.dk">kontakt@kantan.dk</a>.';
+      // formsubmit.co afviser sider åbnet fra disken eller localhost, så en lokal forhåndsvisning kan ikke sende
+      const lokal = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+      status.innerHTML = lokal
+        ? 'Formularen kan kun sende fra den udgivne side på kantan.dk, ikke fra en lokal forhåndsvisning.'
+        : 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til <a href="mailto:kontakt@kantan.dk">kontakt@kantan.dk</a>.';
       status.hidden = false;
       btn.disabled = false;
       btn.textContent = label;
