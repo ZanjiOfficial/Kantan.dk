@@ -186,6 +186,7 @@ const foot = (c) => `
           </div>
         </footer>
 
+        <script src="../clean-urls.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -222,7 +223,7 @@ mkdirSync(OUT);
 for (const a of artikler) {
   aktuel = a.slug;
   writeFileSync(`${OUT}/${a.slug}.html`, head({
-    title: a.title, description: a.description, url: `${OUT}/${a.slug}.html`, image: a.image ?? a.hero, prefix: '../', type: 'article',
+    title: a.title, description: a.description, url: `${OUT}/${a.slug}`, image: a.image ?? a.hero, prefix: '../', type: 'article',
   }) + nav(false) + `
         <section class="hero-simple${a.hero ? ' has-image' : ''}"${a.hero ? ` style="background-image:url('../${esc(a.hero)}')"` : ''}>
           <div class="container">
