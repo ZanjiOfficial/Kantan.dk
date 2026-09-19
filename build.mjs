@@ -15,8 +15,8 @@ const dato = (d) => new Date(d).toLocaleDateString('da-DK', { day: 'numeric', mo
 
 // Afsluttende salgsbånd på artikelsider. En artikel vælger med `cta:` i front matter, hvilken ydelse den leder videre til.
 const CTA = {
-  rejseplan: { h: 'Skal jeg planlægge jeres Japan?', p: 'Skriv kort om turen, I drømmer om, så vender jeg tilbage med et forslag.', href: 'kontakt.html', knap: 'Fortæl mig om jeres tur' },
-  wh: { h: 'Skal jeg hjælpe dig til Japan?', p: 'Skriv kort om dig selv og det år, du drømmer om, så vender jeg tilbage med et forslag.', href: 'kontakt.html?pakke=wh', knap: 'Fortæl mig om dit år' },
+  rejseplan: { h: 'Skal jeg planlægge jeres Japan?', p: 'Skriv kort om turen, I drømmer om, så vender jeg tilbage med et forslag.', href: 'kontakt.html', knap: 'Få et forslag til jeres tur' },
+  wh: { h: 'Skal jeg hjælpe dig til Japan?', p: 'Skriv kort om dig selv og det år, du drømmer om, så vender jeg tilbage med et forslag.', href: 'kontakt.html?pakke=wh', knap: 'Få et forslag til dit år' },
 };
 
 // Cache-busting af stylesheet (Cloudflare cacher style.css i timevis): hash af indholdet.
