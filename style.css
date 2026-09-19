@@ -786,8 +786,18 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 .article-card p { color: var(--ink-soft); }
 .article-card-more { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--accent); }
 
-.prose h2 { font-size: 32px; margin-top: 2.75rem; }
+.prose h2 { font-size: 32px; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 .prose h3 { margin-top: 2rem; }
+/* FAQ: <section class="faq"> i markdown, så sektionen står tydeligt for sig */
+.prose .faq {
+  margin: 3.5rem 0 0;
+  padding: 2rem 2.25rem 1.25rem;
+  background-color: var(--paper-alt);
+  border-top: 3px solid var(--accent);
+}
+.prose .faq h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+.prose .faq h3 { font-size: 22px; margin-top: 1.75rem; margin-bottom: 0.4rem; color: var(--accent-deep); }
+@media (max-width: 575px) { .prose .faq { padding: 1.5rem 1.25rem 0.75rem; } }
 .prose ul, .prose ol { margin-bottom: 1.25rem; }
 .prose li { margin-bottom: 0.4rem; }
 .prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 1rem 0; }
