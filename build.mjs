@@ -127,7 +127,6 @@ const nav = (aktivArtikler) => `
                   <li class="nav-item"><a class="nav-link" href="../index.html#saadan">Sådan fungerer det</a></li>
                   <li class="nav-item"><a class="nav-link" href="../index.html#inkluderet">Hvad du får</a></li>
                   <li class="nav-item"><a class="nav-link" href="../index.html#om-mig">Om mig</a></li>
-                  <li class="nav-item"><a class="nav-link" href="../index.html#galleri">Galleri</a></li>
                   <li class="nav-item"><a class="nav-link" href="../index.html#priser">Priser</a></li>
                   <li class="nav-item"><a class="nav-link" href="../working-holiday.html">Working Holiday</a></li>
                   <li class="nav-item"><a class="nav-link${aktivArtikler ? ' active' : ''}" href="index.html">Artikler</a></li>
@@ -165,7 +164,6 @@ const foot = (c) => `
                   <li class="mb-2"><a href="../index.html#saadan">Sådan fungerer det</a></li>
                   <li class="mb-2"><a href="../index.html#inkluderet">Hvad du får</a></li>
                   <li class="mb-2"><a href="../index.html#om-mig">Om mig</a></li>
-                  <li class="mb-2"><a href="../index.html#galleri">Galleri</a></li>
                   <li class="mb-2"><a href="../index.html#priser">Priser</a></li>
                   <li class="mb-2"><a href="../working-holiday.html">Working Holiday</a></li>
                   <li class="mb-2"><a href="index.html">Artikler</a></li>
@@ -205,8 +203,8 @@ const foot = (c) => `
 // Billeder står som rod-relative stier i front matter, så de får `up` foran ('' fra forsiden, '../' ellers).
 const card = (a, dir, up) => `
               <div class="col-md-6 col-lg-4">
-                <a class="article-card" href="${dir}${a.slug}.html">${a.image ? `
-                  <img src="${up}${esc(a.image)}" alt="" loading="lazy" decoding="async">` : ''}
+                <a class="article-card" href="${dir}${a.slug}.html">${a.image ?? a.hero ? `
+                  <img src="${up}${esc(a.image ?? a.hero)}" alt="" loading="lazy" decoding="async">` : ''}
                   <div class="article-card-body">
                     <span class="eyebrow">${dato(a.date)}</span>
                     <h3>${esc(a.title)}</h3>
