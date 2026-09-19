@@ -21,6 +21,7 @@ const CTA = {
 
 // Cache-busting af stylesheet (Cloudflare cacher style.css i timevis): hash af indholdet.
 const cssHash = createHash('sha256').update(readFileSync('style.css')).digest('hex').slice(0, 8);
+const jsHash = createHash('sha256').update(readFileSync('clean-urls.js')).digest('hex').slice(0, 8);
 
 // --- Indlæs artikler ---------------------------------------------------------
 function parse(file) {
@@ -184,7 +185,7 @@ const foot = (c) => `
           </div>
         </footer>
 
-        <script src="../clean-urls.js"></script>
+        <script src="../clean-urls.js?v=${jsHash}"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -295,10 +296,12 @@ let forside = readFileSync('index.html', 'utf8');
 if (!MARK.test(forside)) throw new Error('index.html mangler <!-- artikler:start --> ... <!-- artikler:end -->');
 writeFileSync('index.html', forside.replace(MARK, () => `<!-- artikler:start -->${sektion}<!-- artikler:end -->`));
 
-// Hold ?v=-hashen i de håndskrevne sider opdateret, så style.css-ændringer altid slår igennem hos Cloudflare.
+// Hold ?v=-hashen på style.css og clean-urls.js i de håndskrevne sider opdateret, så ændringer altid slår igennem hos Cloudflare.
 for (const f of readdirSync('.').filter((f) => f.endsWith('.html'))) {
   const s = readFileSync(f, 'utf8');
-  const n = s.replace(/style\.css\?v=[0-9a-f]+/g, `style.css?v=${cssHash}`);
+  const n = s
+    .replace(/style\.css\?v=[0-9a-f]+/g, `style.css?v=${cssHash}`)
+    .replace(/clean-urls\.js(\?v=[0-9a-f]+)?/g, `clean-urls.js?v=${jsHash}`);
   if (n !== s) writeFileSync(f, n);
 }
 
