@@ -88,6 +88,7 @@ const head = ({ title, description, url, image, prefix, type = 'website' }) => `
         <meta property="og:description" content="${esc(description)}">
         <meta property="og:image" content="${SITE}/${image ?? 'images/hero-hiroshima.jpg'}">
         <meta property="og:url" content="${SITE}/${url}">
+        <link rel="canonical" href="${SITE}/${url}">
         <meta name="twitter:card" content="summary_large_image">
 
         <link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">
