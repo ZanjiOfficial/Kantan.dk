@@ -35,7 +35,7 @@ Mange steder hænger der også et forhæng med tegnet ゆ, *yu*, som betyder var
 Nogle steder bytter mænd og kvinder bad i løbet af dagen, så tjek forhænget hver gang, også selv om du var der i går.
 
 </div>
-<img src="../images/Onsen/onsen-noren.jpg" alt="Blåt noren-forhæng med det hvide tegn ゆ, som markerer indgangen til et japansk bad" loading="lazy" decoding="async">
+<img src="../images/Onsen/onsen-noren.jpg" alt="Blåt noren-forhæng med det hvide tegn ゆ, som markerer indgangen til et japansk bad" decoding="async">
 </div>
 
 I omklædningsrummet lægger du alt tøjet i en kurv eller et skab. Derfra går du ind til vaskepladserne, hvor man sidder på en lille skammel foran en bruser og vasker sig grundigt med sæbe fra top til tå. Det er den vigtigste regel af dem alle. Badet er til at slappe af i, ikke til at blive ren i.
