@@ -22,12 +22,21 @@ Et onsen må ikke forveksles med et *sentō* (銭湯), som er et offentligt bade
 
 ## Før du stiger i vandet
 
+<div class="side-photo">
+<div>
+
 Indgangen til badet er markeret med et stofforhæng, *noren* (暖簾). Badene er næsten altid delt efter køn, og det er vigtigt at gå ind det rigtige sted:
 
 - **男** betyder mænd, og forhænget er ofte blåt.
 - **女** betyder kvinder, og forhænget er ofte rødt.
 
+Mange steder hænger der også et forhæng med tegnet ゆ, *yu*, som betyder varmt vand. Ser du det, ved du, at der er et bad bag forhænget.
+
 Nogle steder bytter mænd og kvinder bad i løbet af dagen, så tjek forhænget hver gang, også selv om du var der i går.
+
+</div>
+<img src="../images/Onsen/onsen-noren.jpg" alt="Blåt noren-forhæng med det hvide tegn ゆ, som markerer indgangen til et japansk bad" loading="lazy" decoding="async">
+</div>
 
 I omklædningsrummet lægger du alt tøjet i en kurv eller et skab. Derfra går du ind til vaskepladserne, hvor man sidder på en lille skammel foran en bruser og vasker sig grundigt med sæbe fra top til tå. Det er den vigtigste regel af dem alle. Badet er til at slappe af i, ikke til at blive ren i.
 

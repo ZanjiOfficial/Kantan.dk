@@ -1,1 +1,14 @@
 node_modules/
+
+# Full-size photo originals. The site only uses the resized copies (images/gallery, images/Onsen, ...).
+images/random/
+images/Hiroshima/
+images/Kyoto/
+images/Nagoya/
+images/Okinawa/
+images/Sakura/
+images/Sapporo/
+images/Tokyo/
+images/matsuri/
+images/onsen-hero.jpg
+Thumbs.db

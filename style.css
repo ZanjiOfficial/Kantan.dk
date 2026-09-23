@@ -944,6 +944,14 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 .prose ul, .prose ol { margin-bottom: 1.25rem; }
 .prose li { margin-bottom: 0.4rem; }
 .prose img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin: 1.5rem 0; }
+/* Tekst med et portrætbillede ved siden af. Billedet strækkes til tekstens højde. På mobil står billedet over teksten. */
+.prose .side-photo { display: grid; grid-template-columns: 1fr 42%; gap: 1.75rem; margin-bottom: 1rem; }
+.prose .side-photo > :first-child > :last-child { margin-bottom: 0; }
+.prose .side-photo img { height: 0; min-height: 100%; aspect-ratio: auto; margin: 0.4rem 0 0; }
+@media (max-width: 640px) {
+  .prose .side-photo { grid-template-columns: 1fr; }
+  .prose .side-photo img { order: -1; height: auto; min-height: 0; width: 70%; margin: 0.5rem auto 0; }
+}
 .prose .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
 .prose .photo-pair p { margin: 0; }
 .prose .photo-pair img { margin: 0; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
