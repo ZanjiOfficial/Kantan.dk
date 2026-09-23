@@ -219,8 +219,8 @@ const foot = (c) => `
 
 // `dir` er stien fra den side, kortet står på, til artikel-mappen ('artikler/' fra forsiden, '' ellers).
 // Billeder står som rod-relative stier i front matter, så de får `up` foran ('' fra forsiden, '../' ellers).
-const card = (a, dir, up) => `
-              <div class="col-md-6 col-lg-4">
+const card = (a, dir, up, col = 'col-md-6 col-lg-4') => `
+              <div class="${col}">
                 <a class="article-card" href="${dir}${a.slug}.html">${a.image ?? a.hero ? `
                   <img src="${up}${esc(a.image ?? a.hero)}" alt="" loading="lazy" decoding="async">` : ''}
                   <div class="article-card-body">
@@ -269,6 +269,19 @@ const spoergsmaal = (a) => `
                   </form>
                   <p class="article-ask-thanks" role="status" hidden>Tak! Jeg har modtaget din besked og vender tilbage hurtigst muligt.</p>
                 </section>`;
+
+// "Læs også" over kilderne: først de artikler, teksten selv linker til, derefter de nyeste. To kort.
+const laesOgsaa = (a) => {
+  const linket = [...a.body.matchAll(/\]\(([\w-]+)\.md/g)].map((m) => m[1]);
+  const valgt = [...new Set([...linket, ...artikler.map((x) => x.slug)])].filter((s) => s !== a.slug).slice(0, 2);
+  if (!valgt.length) return '';
+  return `
+                <section class="article-more" aria-labelledby="more-h">
+                  <h2 id="more-h">Læs også</h2>
+                  <div class="row g-4">${valgt.map((s) => card(artikler.find((x) => x.slug === s), '', '../', 'col-sm-6')).join('')}
+                  </div>
+                </section>`;
+};
 
 // Artikelbrødtekst -> HTML med id på hver h2, en klikbar indholdsfortegnelse lige før første overskrift, og "Kilder" trukket ud,
 // så de kan stå under spørgsmålsformularen.
@@ -338,6 +351,7 @@ for (const a of artikler) {
               <div class="col-lg-8 prose">
 ${html}
 ${spoergsmaal(a)}
+${laesOgsaa(a)}
 ${kilder}
                 <div class="article-follow">
                   <p>Følg Kantan for mere om Japan</p>

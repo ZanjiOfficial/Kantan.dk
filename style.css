@@ -943,7 +943,7 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 @media (max-width: 575px) { .prose .faq { padding: 1.5rem 1.25rem 0.75rem; } }
 .prose ul, .prose ol { margin-bottom: 1.25rem; }
 .prose li { margin-bottom: 0.4rem; }
-.prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 1rem 0; }
+.prose img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); margin: 1.5rem 0; }
 .prose .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
 .prose .photo-pair p { margin: 0; }
 .prose .photo-pair img { margin: 0; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
@@ -1037,3 +1037,7 @@ legend.form-label { float: none; width: 100%; padding: 0; }
 @media (min-width: 1200px) and (max-width: 1399.98px) {
   .navbar-nav .nav-link:not(.nav-cta) { padding: 0.5rem 0.55rem !important; white-space: nowrap; }
 }
+/* "Læs også" nederst i artikler: artikelkort inde i brødteksten */
+.prose .article-more .article-card img { margin: 0; border-radius: 0; }
+.prose .article-more .article-card-body { padding: 1.25rem 1.5rem 1.5rem; }
+.prose .article-more .article-card h3 { font-size: 22px; margin-top: 0; }
