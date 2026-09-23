@@ -2,7 +2,7 @@
 title: Onsen i Japan, reglerne ingen fortæller dig
 description: Et japansk varmt bad har faste ritualer. Her er de vigtigste, så du kan slappe af i stedet for at gætte.
 date: 2026-09-16
-$1
+emne: onsen i Japan
 metatitle: Onsen i Japan: reglerne, du skal kende. Kantan
 metadescription: Onsen i Japan har faste ritualer: vask dig først, brug det lille håndklæde rigtigt, og tjek reglerne om tatoveringer, før du stiger i vandet.
 hero: images/Onsen/images.jpg

@@ -2,7 +2,7 @@
 title: Kulturchok i Japan, mærkelig kultur eller bare perspektiv?
 description: Træpenisser i optog, lotteri til koncertbilletter og tre lag af høflighed. Kulturchok i Japan handler mest om perspektiv.
 date: 2026-09-17
-$1
+emne: kulturchok i Japan
 metatitle: Kulturchok i Japan: mærkelig kultur eller perspektiv. Kantan
 metadescription: Træpenisser i optog, lotteri til koncertbilletter og tre lag af høflighed. Kulturchok i Japan handler mest om perspektiv, ikke om mærkelig kultur.
 hero: images/gallery/kyoto-6165-large.jpg
@@ -47,6 +47,8 @@ Japansk skifter form efter, hvem du taler med, og der er tre lag:
 Selv japanere øver sig i keigo, når de begynder på deres første job.
 
 Det gør mange nervøse for at sige noget forkert, og det kan tage modet fra sproglæringen og nysgerrigheden. Når spørgsmål skal stilles på en bestemt måde for ikke at blive misforstået, er det let at lade være med at spørge. Den gode nyhed er, at man ikke bliver dømt hårdt som udlænding: den høflige form er et sikkert udgangspunkt, og forsøget bliver næsten altid værdsat.
+
+Og vil du se, hvor langt høfligheden kan strækkes, så læs om [Kyoto, hvor et kompliment kan betyde, at du skal gå](kyoto-stereotyper.md).
 
 ## Kulturchok i Japan handler om perspektiv
 

@@ -2,7 +2,7 @@
 title: "Koncerter i Japan: lodtrækning, navn på billetten og et sæde, du først ser på dagen"
 description: Du kan ikke bare købe en koncertbillet i Japan. Du søger om den, venter og håber. Sådan fungerer billetsystemet, og hvorfor det nok er det bedste, der findes.
 date: 2026-09-19
-$1
+emne: koncerter i Japan
 metatitle: Koncertbilletter i Japan: lodtrækning og pladser. Kantan
 metadescription: Sådan får du koncertbilletter i Japan: lodtrækning, fanklub, navn på billetten, plads først på dagen og de vigtigste regler for udlændinge.
 hero: images/koncert/koncert-lyserod-scene.jpg
