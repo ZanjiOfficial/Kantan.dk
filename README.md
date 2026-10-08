@@ -24,7 +24,7 @@ date: 2026-09-19
 metatitle: Onsen i Japan: reglerne, du skal kende. Kantan   # valgfri: meta-titel til Google og link-forhåndsvisning (højst ca. 60 tegn), standard er "<titel>, Kantan"
 metadescription: Højst ca. 155 tegn.                            # valgfri: meta-beskrivelse, standard er description
 emne: onsen i Japan      # valgfri: står i overskriften over spørgsmålsformularen ("Nogle spørgsmål til onsen i Japan?"), standard er titlen
-cta: rejseplan          # valgfri: hvilken ydelse bunden peger på, rejseplan (standard) eller wh
+cta: rejseplan          # valgfri: hvilken ydelse bunden peger på, kun rejseplan indtil videre
 image: images/gallery/kyoto-6068-large.jpg   # valgfri: billede på kortet
 hero: images/gallery/kyoto-6165-large.jpg    # valgfri: billede bag titlen (bruges også som delingsbillede)
 ---
